@@ -1,16 +1,31 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    InputAction moveAction; 
+
+    public InputAction sprintAction;
+    public InputAction slowWalkAction;
+    Vector2 moveValue;
     void Start()
     {
-        
+        moveAction = InputSystem.actions.FindAction("Move");
+        sprintAction = InputSystem.actions.FindAction("Sprint");
+        slowWalkAction = InputSystem.actions.FindAction("Crouch");
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
         
+       
+    }
+
+    public Vector2 GetInput()
+    {
+        moveValue = moveAction.ReadValue<Vector2>();
+        return moveValue;
     }
 }
