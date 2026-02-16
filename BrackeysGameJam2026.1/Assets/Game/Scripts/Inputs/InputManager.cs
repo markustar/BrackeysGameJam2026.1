@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,6 +27,7 @@ public class InputManager : MonoBehaviour
     public Vector2 GetInput()
     {
         moveValue = moveAction.ReadValue<Vector2>();
+        moveValue = moveValue.normalized;
         return moveValue;
     }
 }
