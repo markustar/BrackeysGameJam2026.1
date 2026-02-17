@@ -9,12 +9,14 @@ public class InputManager : MonoBehaviour
 
     public InputAction sprintAction;
     public InputAction slowWalkAction;
+    public InputAction attackAction;
     Vector2 moveValue;
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         sprintAction = InputSystem.actions.FindAction("Sprint");
         slowWalkAction = InputSystem.actions.FindAction("Crouch");
+        attackAction = InputSystem.actions.FindAction("Attack");
     }
 
  
