@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_playerRb.linearVelocity);
+        
     }
     void FixedUpdate()
     {
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     float deceleration = 30f;
     void Addvelocity(float speed)
     {    
-        targetVelocity = inputManager.GetInput() * speed;
+        targetVelocity = inputManager.GetInput() * speed * Time.fixedDeltaTime;
         // _playerRb.linearVelocity = Vector2.Lerp(_playerRb.linearVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
         if(inputManager.GetInput() != Vector2.zero)
         {
