@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float slowWalkSpeed = 3f;
     bool canSprint = true;
     bool canSlowWalk = true;
+    bool canAttack = true;
     
     InputManager inputManager;  
 
@@ -79,6 +80,9 @@ public class PlayerMovement : MonoBehaviour
 
         // Combat
 
+        if(attackCost > playerStamina)
+            canAttack = false;
+        else canAttack = true;
         MousePosToWorlView();
         CheckIfCanAttack();
     }
@@ -86,15 +90,30 @@ public class PlayerMovement : MonoBehaviour
     private void MousePosToWorlView()
     {
         Vector3 mousePos;
-        if (inputManager.attackAction.WasPressedThisFrame() && !isAttacking)
+        if (inputManager.attackAction.WasPressedThisFrame() && !isAttacking && canAttack)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0f;
 
             Vector2 direction = mousePos - aimPos.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            aimPos.rotation = Quaternion.Euler(0f, 0f, angle);
+            // aimPos.rotation = Quaternion.Euler(0f, 0f, angle);
+
+            if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            {
+                if(direction.x > 0)
+                aimPos.rotation = Quaternion.Euler(0,0,0);
+                else 
+                 aimPos.rotation = Quaternion.Euler(0,0,180);
+            }
+            else
+            {
+                if(direction.y > 0)
+                 aimPos.rotation = Quaternion.Euler(0,0,90);
+                else
+                 aimPos.rotation = Quaternion.Euler(0,0,-90);
+            }
             HandleAttack();
         }
     }
@@ -154,8 +173,20 @@ public class PlayerMovement : MonoBehaviour
     float acceleration = 20f;
     float deceleration = 30f;
     void Addvelocity(float speed)
-    {    
-        targetVelocity = inputManager.GetInput() * speed;
+    {   
+        Vector2 input = inputManager.GetInput();
+        if(Mathf.Abs(input.x) > Mathf.Abs(input.y))
+        {
+            input.y = 0;
+            input.x = Mathf.Sign(input.x);
+        }
+        else
+        {
+            input.x = 0;
+            input.y = Mathf.Sign(input.y);
+        }
+
+        targetVelocity = input * speed;
         // _playerRb.linearVelocity = Vector2.Lerp(_playerRb.linearVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
         if(inputManager.GetInput() != Vector2.zero && !isAttacking)
         {
@@ -191,7 +222,8 @@ public class PlayerMovement : MonoBehaviour
         {
             isAttacking = true;
             attackHitBox.SetActive(true);
-            StaminaSub(attackCost);
+            playerStamina -= attackCost;
+            stamina.fillAmount = playerStamina / maxStamina;
         }
         
     }
