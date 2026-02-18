@@ -810,6 +810,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  attackAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5134e3d3-38d1-43db-a1dd-5ac2d20bb802
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!4 &417811677
 Transform:
   m_ObjectHideFlags: 0
@@ -1386,7 +1395,6 @@ MonoBehaviour:
   walkSpeed: 5
   runSpeed: 15
   slowWalkSpeed: 0.08
-  aimTransform: {fileID: 622477589}
   maxStamina: 100
   playerStamina: 100
   runCost: 15
@@ -1394,6 +1402,10 @@ MonoBehaviour:
   attackCost: 20
   chargeRate: 25
   stamina: {fileID: 1687852187}
+  aimPos: {fileID: 0}
+  attackHitBox: {fileID: 0}
+  attackDuration: 0.3
+  isAttacking: 1
 --- !u!212 &1637870443
 SpriteRenderer:
   serializedVersion: 2
