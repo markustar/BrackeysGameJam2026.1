@@ -814,7 +814,7 @@ MonoBehaviour:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 5134e3d3-38d1-43db-a1dd-5ac2d20bb802
+    m_Id: 864df39e-2127-416a-b86a-2150c97b89af
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1350,7 +1350,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.26666668}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.26666668}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1397,13 +1397,13 @@ MonoBehaviour:
   slowWalkSpeed: 0.08
   maxStamina: 100
   playerStamina: 100
-  runCost: 15
-  slowWalkCost: 10
-  attackCost: 20
+  runCost: 25
+  slowWalkCost: 15
+  attackCost: 35
   chargeRate: 25
   stamina: {fileID: 1687852187}
-  aimPos: {fileID: 0}
-  attackHitBox: {fileID: 0}
+  aimPos: {fileID: 622477589}
+  attackHitBox: {fileID: 1425515550}
   attackDuration: 0.3
   isAttacking: 1
 --- !u!212 &1637870443
