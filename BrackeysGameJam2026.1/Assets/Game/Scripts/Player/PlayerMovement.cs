@@ -190,25 +190,6 @@ public class PlayerMovement : MonoBehaviour
     {   
         Vector2 rawInput = inputManager.GetInput();
 
-        // if(Mathf.Abs(rawInput.x) > Mathf.Abs(rawInput.y))
-        // {
-        //     // rawInput.y = 0;
-        //     // rawInput.x = Mathf.Sign(rawInput.x);
-
-        //     snappedinput = new Vector2(Mathf.Sign(rawInput.x), 0);
-        // }
-        // else if (Mathf.Abs(rawInput.y) > Mathf.Abs(rawInput.x))
-        // {
-        //     // rawInput.x = 0;
-        //     // rawInput.y = Mathf.Sign(rawInput.y);
-        //     snappedinput = new Vector2(Mathf.Sign(rawInput.y), 0);
-        // }
-
-        // else
-        // {
-        //     snappedinput = Vector2.zero;
-        // }
-
         if(rawInput.x > 0) snappedinput = Vector2.right;
         if(rawInput.x < 0) snappedinput = Vector2.left;
         if(rawInput.y > 0) snappedinput = Vector2.up;
