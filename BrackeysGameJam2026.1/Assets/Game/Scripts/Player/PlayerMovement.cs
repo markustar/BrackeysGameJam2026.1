@@ -45,10 +45,17 @@ public class PlayerMovement : MonoBehaviour
     float lastAttackTime;
     [SerializeField] bool isAttacking = true ;
 
+    [Header("Animation")]
+
+    Animator anim;
+    bool isSprinting = false;
+    
+
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
         inputManager = FindFirstObjectByType<InputManager>();
+        anim = GetComponentInChildren<Animator>();
 
         attackHitBox.SetActive(false);
 
@@ -77,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
             canSlowWalk = false;
         }
         else { canSlowWalk = true; }
+
+       Animate();
 
         // Combat
 
@@ -119,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    {   
         HandleMovement();
     }
 
@@ -129,7 +138,8 @@ public class PlayerMovement : MonoBehaviour
         Addvelocity(walkSpeed);
 
         // run
-
+            isSprinting = false;
+            anim.SetBool("isRunning", false);
         if(inputManager.sprintAction.IsPressed() && canSprint)
         {
             Addvelocity(runSpeed);
@@ -137,6 +147,8 @@ public class PlayerMovement : MonoBehaviour
             if(_playerRb.linearVelocity.magnitude > 0.1f)
             {
             StaminaSub(runCost);
+            isSprinting = true;
+            anim.SetBool("isRunning", true);
             }
         }
         // stealth
@@ -172,21 +184,38 @@ public class PlayerMovement : MonoBehaviour
     Vector2 targetVelocity;
     float acceleration = 20f;
     float deceleration = 30f;
+
+    Vector2 snappedinput;
     void Addvelocity(float speed)
     {   
-        Vector2 input = inputManager.GetInput();
-        if(Mathf.Abs(input.x) > Mathf.Abs(input.y))
-        {
-            input.y = 0;
-            input.x = Mathf.Sign(input.x);
-        }
-        else
-        {
-            input.x = 0;
-            input.y = Mathf.Sign(input.y);
-        }
+        Vector2 rawInput = inputManager.GetInput();
 
-        targetVelocity = input * speed;
+        // if(Mathf.Abs(rawInput.x) > Mathf.Abs(rawInput.y))
+        // {
+        //     // rawInput.y = 0;
+        //     // rawInput.x = Mathf.Sign(rawInput.x);
+
+        //     snappedinput = new Vector2(Mathf.Sign(rawInput.x), 0);
+        // }
+        // else if (Mathf.Abs(rawInput.y) > Mathf.Abs(rawInput.x))
+        // {
+        //     // rawInput.x = 0;
+        //     // rawInput.y = Mathf.Sign(rawInput.y);
+        //     snappedinput = new Vector2(Mathf.Sign(rawInput.y), 0);
+        // }
+
+        // else
+        // {
+        //     snappedinput = Vector2.zero;
+        // }
+
+        if(rawInput.x > 0) snappedinput = Vector2.right;
+        if(rawInput.x < 0) snappedinput = Vector2.left;
+        if(rawInput.y > 0) snappedinput = Vector2.up;
+        if(rawInput.y < 0) snappedinput = Vector2.down;
+        
+
+        targetVelocity = snappedinput * speed;
         // _playerRb.linearVelocity = Vector2.Lerp(_playerRb.linearVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
         if(inputManager.GetInput() != Vector2.zero && !isAttacking)
         {
@@ -241,5 +270,11 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+    }
+
+    void Animate()
+    {
+        anim.SetFloat("MoveX", snappedinput.x);
+        anim.SetFloat("MoveY", snappedinput.y);
     }
 }
