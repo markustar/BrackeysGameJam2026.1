@@ -1,9 +1,5 @@
-using System;
+
 using System.Collections;
-using NUnit.Framework;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.UI;
 
