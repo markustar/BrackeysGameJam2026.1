@@ -1,27 +1,7 @@
 fileFormatVersion: 2
-
 guid: 493a95e56c1ed2643bfe9fac90db3134
-5231b952907ee3f53edf20a891c8af1e2d7e0632
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -9140362430814795075
-    second: walkright_0
-  - first:
-      213: 4972804313839759577
-    second: walkright_1
-  - first:
-      213: 4993966369327316295
-    second: walkright_2
-  - first:
-      213: 5006147291923293036
-    second: walkright_3
-  - first:
-      213: 3859269762340584679
-    second: walkright_4
-  - first:
-      213: -2456874100934556748
-    second: walkright_5
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,12 +34,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -68,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -83,16 +63,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -120,20 +100,20 @@ TextureImporter:
       name: walkright_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 0
         y: 0
-        width: 17
-        height: 61
+        width: 60
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dba45f00cc8e62180800000000000000
-      internalID: -9140362430814795075
+      spriteID: 4901dc854ac3feb46baab3f10316fef3
+      internalID: 1135599406
       vertices: []
       indices: 
       edges: []
@@ -142,20 +122,20 @@ TextureImporter:
       name: walkright_1
       rect:
         serializedVersion: 2
-        x: 82
+        x: 68
         y: 0
-        width: 33
-        height: 61
+        width: 55
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9d0f2f72d23f20540800000000000000
-      internalID: 4972804313839759577
+      spriteID: 124bd312f373e474cb79a3fe83f0992f
+      internalID: 1399918182
       vertices: []
       indices: 
       edges: []
@@ -164,20 +144,20 @@ TextureImporter:
       name: walkright_2
       rect:
         serializedVersion: 2
-        x: 144
+        x: 135
         y: 0
-        width: 28
-        height: 61
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 74d700824f12e4540800000000000000
-      internalID: 4993966369327316295
+      spriteID: fdbd7390efaeb6749bb2b6d70c0677b2
+      internalID: 1879212400
       vertices: []
       indices: 
       edges: []
@@ -186,20 +166,20 @@ TextureImporter:
       name: walkright_3
       rect:
         serializedVersion: 2
-        x: 217
+        x: 199
         y: 0
-        width: 17
-        height: 61
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c632f543078697540800000000000000
-      internalID: 5006147291923293036
+      spriteID: 41d2f0fdaf14f1d4c827be6810bf8237
+      internalID: 1121672035
       vertices: []
       indices: 
       edges: []
@@ -208,20 +188,20 @@ TextureImporter:
       name: walkright_4
       rect:
         serializedVersion: 2
-        x: 272
+        x: 259
         y: 0
-        width: 34
-        height: 61
+        width: 56
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ec77bcc661ee8530800000000000000
-      internalID: 3859269762340584679
+      spriteID: 9f452151c4b85274cb7827465cfc9c52
+      internalID: 466252048
       vertices: []
       indices: 
       edges: []
@@ -230,20 +210,20 @@ TextureImporter:
       name: walkright_5
       rect:
         serializedVersion: 2
-        x: 336
+        x: 324
         y: 0
-        width: 27
-        height: 61
+        width: 57
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4b340f3b50e67edd0800000000000000
-      internalID: -2456874100934556748
+      spriteID: 88a119b1105554645a2ece1731411d74
+      internalID: -1644626909
       vertices: []
       indices: 
       edges: []
@@ -252,7 +232,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 96b352bb1230c2c4ebda07cd6c0b5703
     internalID: 0
     vertices: []
     indices: 
@@ -262,12 +242,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      walkright_0: -9140362430814795075
-      walkright_1: 4972804313839759577
-      walkright_2: 4993966369327316295
-      walkright_3: 5006147291923293036
-      walkright_4: 3859269762340584679
-      walkright_5: -2456874100934556748
+      walkright_0: 1135599406
+      walkright_1: 1399918182
+      walkright_2: 1879212400
+      walkright_3: 1121672035
+      walkright_4: 466252048
+      walkright_5: -1644626909
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
