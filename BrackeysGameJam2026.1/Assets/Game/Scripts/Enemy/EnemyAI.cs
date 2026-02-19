@@ -27,9 +27,10 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Detection")]
     public float detectionMeter = 0f;
-    public float detectionSpeed = 50f; // Percent per second
+    public float detectionSpeed = 100f; // Increased for faster response
     public float detectionDecay = 20f;
     public float detectionThreshold = 100f;
+    public float chaseMaxRange = 10f; // The "Chase Area" radius
     public string playerTag = "Player";
     public LayerMask obstacleMask;
 
@@ -82,30 +83,33 @@ public class EnemyAI : MonoBehaviour
         if (fov != null)
         {
             fov.SetOrigin(Vector3.zero);
-            Vector3 moveDir = agent.velocity;
-
-            if (moveDir.sqrMagnitude > 0.01f)
+            
+            // PRIORITY 1: If we are detecting the player but not chasing yet, stare at them
+            if (detectionMeter > 0 && currentState != State.Chase && currentState != State.Attack && player != null)
             {
+                Vector3 dirToPlayer = (player.position - transform.position).normalized;
+                float targetAngle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, targetAngle), rotationSpeed * Time.deltaTime);
+                fov.SetAimDirection(dirToPlayer);
+            }
+            // PRIORITY 2: Movement-based rotation
+            else if (agent.velocity.sqrMagnitude > 0.01f)
+            {
+                Vector3 moveDir = agent.velocity;
                 float targetAngle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
                 Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
 
-                // Rotate the body smoothly
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-                // CRITICAL: Point the FOV EXACTLY where we are moving, regardless of body lag
                 fov.SetAimDirection(moveDir);
             }
+            // PRIORITY 3: Idle/Patrol wait rotation
             else if (currentState == State.Idle)
             {
-                // Predictable idle rotation: Look left, then right
                 float peakAngle = 45f;
                 float cycleTime = 2f;
                 float t = (Time.time % cycleTime) / cycleTime;
                 float angleOffset = Mathf.PingPong(t * peakAngle * 4, peakAngle * 2) - peakAngle;
 
-                Quaternion idleRotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + angleOffset);
-                // Note: We don't want to permanently rotate the transform here as it messes up the base direction
-                // Instead, we just point the FOV
                 fov.SetAimDirection(Quaternion.Euler(0, 0, angleOffset) * transform.right);
             }
             else
@@ -124,18 +128,36 @@ public class EnemyAI : MonoBehaviour
         if (canSeePlayer)
         {
             detectionMeter += detectionSpeed * Time.deltaTime;
+            
+            // STOP AND STARE: If we haven't reached full detection, stop the agent
+            if (detectionMeter < detectionThreshold && currentState != State.Chase && currentState != State.Attack)
+            {
+                agent.isStopped = true;
+            }
         }
-        else
+        else if (detectionMeter > 0)
         {
             detectionMeter -= detectionDecay * Time.deltaTime;
+            
+            // Resume patrolling if the player is lost during detection
+            if (detectionMeter <= 0 && currentState == State.Patrol)
+            {
+                agent.isStopped = false;
+            }
         }
 
         detectionMeter = Mathf.Clamp(detectionMeter, 0, detectionThreshold);
+
+        if (fov != null)
+        {
+            fov.SetDetectionLevel(detectionMeter / detectionThreshold);
+        }
 
         if (detectionMeter >= detectionThreshold)
         {
             if (currentState != State.Chase && currentState != State.Attack)
             {
+                Debug.Log("[EnemyAI] Player Detected! Starting Chase.");
                 currentState = State.Chase;
                 StopAllCoroutines();
                 isWaiting = false;
@@ -161,11 +183,26 @@ public class EnemyAI : MonoBehaviour
 
     private void ChaseBehavior()
     {
+        if (player == null) return;
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        // LEASH LOGIC: If player leaves the "Chase Area"
+        if (distanceToPlayer > chaseMaxRange)
+        {
+            Debug.Log("[EnemyAI] Player left Chase Area. Returning to patrol.");
+            detectionMeter = 0; // Immediate reset
+            currentState = State.Patrol;
+            agent.isStopped = false;
+            SetDestinationToWaypoint();
+            return;
+        }
+
         agent.speed = chaseSpeed;
         agent.isStopped = false;
         agent.SetDestination(player.position);
 
-        if (Vector3.Distance(transform.position, player.position) <= attackRange)
+        if (distanceToPlayer <= attackRange)
         {
             currentState = State.Attack;
             agent.isStopped = true;

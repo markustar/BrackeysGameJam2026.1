@@ -968,7 +968,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 2100000, guid: 9ebc0ed5e3792174282d04fa5f2adaa5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1118,6 +1117,7 @@ MonoBehaviour:
   detectionSpeed: 50
   detectionDecay: 20
   detectionThreshold: 100
+  chaseMaxRange: 10
   playerTag: Player
   obstacleMask:
     serializedVersion: 2

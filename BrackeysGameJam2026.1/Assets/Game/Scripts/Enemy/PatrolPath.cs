@@ -5,7 +5,7 @@ public class PatrolPath : MonoBehaviour
 {
     public Transform[] waypoints;
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (waypoints == null || waypoints.Length < 2) return;
 

@@ -13,12 +13,25 @@ public class FieldOfView : UnityEngine.MonoBehaviour
     private Vector3 origin;
     private float startingAngle;
     private Vector3 currentAimDirection;
+    private float detectionLevel = 0f; // 0 to 1
+
+    private Material fovMaterial;
 
     private void Start()
     {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         origin = Vector3.zero;
+
+        Renderer renderer = GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            fovMaterial = renderer.material;
+        }
+        else
+        {
+            Debug.LogError("[FieldOfView] Renderer NOT found on object!");
+        }
     }
 
     private void LateUpdate()
@@ -71,6 +84,13 @@ public class FieldOfView : UnityEngine.MonoBehaviour
         mesh.uv = uv;
         mesh.triangles = triangles;
         mesh.bounds = new Bounds(origin, Vector3.one * 1000f);
+
+        // Update Shader Properties
+        if (fovMaterial != null)
+        {
+            fovMaterial.SetFloat("_FillAmount", detectionLevel);
+            fovMaterial.SetFloat("_ViewDistance", viewDistance);
+        }
     }
 
     public void SetOrigin(Vector3 origin)
@@ -82,6 +102,11 @@ public class FieldOfView : UnityEngine.MonoBehaviour
     {
         currentAimDirection = aimDirection.normalized;
         startingAngle = GetAngleFromVectorFloat(currentAimDirection) + fov / 2f;
+    }
+
+    public void SetDetectionLevel(float level)
+    {
+        detectionLevel = Mathf.Clamp01(level);
     }
 
     private Vector3 GetVectorFromAngle(float angle)
@@ -124,19 +149,8 @@ public class FieldOfView : UnityEngine.MonoBehaviour
                 {
                     if (hit.collider.CompareTag(playerTag))
                     {
-                        Debug.DrawRay(rayOrigin, dirToPlayer * distanceToPlayer, Color.green);
                         return true;
                     }
-                    else
-                    {
-                        // Ray hit something else (an obstacle) before hitting the player
-                        Debug.DrawRay(rayOrigin, dirToPlayer * hit.distance, Color.red);
-                    }
-                }
-                else
-                {
-                    // Should theoretically not happen if combinedMask includes player and we are in range
-                    Debug.DrawRay(rayOrigin, dirToPlayer * distanceToPlayer, Color.yellow);
                 }
             }
         }
