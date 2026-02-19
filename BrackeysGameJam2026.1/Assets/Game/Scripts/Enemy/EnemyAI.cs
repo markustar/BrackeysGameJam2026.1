@@ -41,7 +41,9 @@ public class EnemyAI : MonoBehaviour
     private int currentWaypointIndex = 0;
     private State currentState = State.Patrol;
     private Transform player;
+    private Vector3 lastSeenPlayerPos;
     private bool isWaiting = false;
+    private bool canSeePlayer = false;
 
     private void Start()
     {
@@ -84,25 +86,44 @@ public class EnemyAI : MonoBehaviour
         {
             fov.SetOrigin(Vector3.zero);
             
-            // PRIORITY 1: If we are detecting the player but not chasing yet, stare at them
-            if (detectionMeter > 0 && currentState != State.Chase && currentState != State.Attack && player != null)
+            // PRIORITY 1: Stare at player if visible and detecting/chasing
+            if (canSeePlayer && player != null)
             {
                 Vector3 dirToPlayer = (player.position - transform.position).normalized;
                 float targetAngle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, targetAngle), rotationSpeed * Time.deltaTime);
-                fov.SetAimDirection(dirToPlayer);
+                
+                // FOV points where the body is currently looking
+                fov.SetAimDirection(transform.right);
             }
-            // PRIORITY 2: Movement-based rotation
+            // PRIORITY 2: Search at last known position if player lost during detection
+            else if (detectionMeter > 0 && currentState != State.Chase && currentState != State.Attack)
+            {
+                Vector3 dirToLastPos = (lastSeenPlayerPos - transform.position).normalized;
+                float targetAngle = Mathf.Atan2(dirToLastPos.y, dirToLastPos.x) * Mathf.Rad2Deg;
+                
+                // Rotate body towards last seen
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, targetAngle), (rotationSpeed * 0.5f) * Time.deltaTime);
+
+                // Add a scanning offset relative to the body's CURRENT direction
+                float scanAngle = 30f;
+                float scanSpeed = 3f;
+                float offset = Mathf.Sin(Time.time * scanSpeed) * scanAngle;
+                
+                fov.SetAimDirection(Quaternion.Euler(0, 0, offset) * transform.right);
+                
+                agent.isStopped = true;
+            }
+            // PRIORITY 3: Movement-based rotation
             else if (agent.velocity.sqrMagnitude > 0.01f)
             {
                 Vector3 moveDir = agent.velocity;
                 float targetAngle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
-                Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
-
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-                fov.SetAimDirection(moveDir);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, targetAngle), rotationSpeed * Time.deltaTime);
+                
+                fov.SetAimDirection(transform.right);
             }
-            // PRIORITY 3: Idle/Patrol wait rotation
+            // PRIORITY 4: Idle/Patrol wait rotation
             else if (currentState == State.Idle)
             {
                 float peakAngle = 45f;
@@ -123,7 +144,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (player == null) return;
 
-        bool canSeePlayer = fov != null && fov.IsPlayerInRange(player, playerTag);
+        canSeePlayer = fov != null && fov.IsPlayerInRange(player, playerTag);
 
         if (canSeePlayer)
         {
@@ -144,6 +165,11 @@ public class EnemyAI : MonoBehaviour
             {
                 agent.isStopped = false;
             }
+        }
+
+        if (canSeePlayer && player != null)
+        {
+            lastSeenPlayerPos = player.position;
         }
 
         detectionMeter = Mathf.Clamp(detectionMeter, 0, detectionThreshold);
@@ -213,7 +239,7 @@ public class EnemyAI : MonoBehaviour
     {
         Vector3 dirToPlayer = (player.position - transform.position).normalized;
         float angle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), 500f * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), rotationSpeed * Time.deltaTime);
 
         if (Time.time >= lastAttackTime + attackCooldown)
         {

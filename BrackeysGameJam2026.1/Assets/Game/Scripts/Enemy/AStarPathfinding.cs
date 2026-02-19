@@ -44,7 +44,15 @@ public class AStarPathfinding : MonoBehaviour
         Node startNode = NodeFromWorldPoint(startPos);
         Node targetNode = NodeFromWorldPoint(targetPos);
 
-        if (!startNode.walkable || !targetNode.walkable) return null;
+        if (!targetNode.walkable)
+        {
+            targetNode = FindNearestWalkableNode(targetNode);
+        }
+
+        if (targetNode == null) return null;
+
+        // Start node can be unwalkable (enemy stuck in wall). 
+        // A* will naturally find a path to the nearest walkable space.
 
         List<Node> openSet = new List<Node>();
         HashSet<Node> closedSet = new HashSet<Node>();
@@ -144,6 +152,31 @@ public class AStarPathfinding : MonoBehaviour
         }
 
         return neighbors;
+    }
+
+    private Node FindNearestWalkableNode(Node targetNode)
+    {
+        int maxRadius = 5; // Search up to 5 nodes away
+        for (int i = 1; i <= maxRadius; i++)
+        {
+            for (int x = -i; x <= i; x++)
+            {
+                for (int y = -i; y <= i; y++)
+                {
+                    if (Mathf.Abs(x) != i && Mathf.Abs(y) != i) continue;
+
+                    int checkX = targetNode.gridX + x;
+                    int checkY = targetNode.gridY + y;
+
+                    if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                    {
+                        if (grid[checkX, checkY].walkable)
+                            return grid[checkX, checkY];
+                    }
+                }
+            }
+        }
+        return null; // No walkable node found nearby
     }
 
     private void OnDrawGizmosSelected()

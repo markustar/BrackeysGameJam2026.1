@@ -22,11 +22,26 @@ public class PathFollower : MonoBehaviour
     {
         if (isStopped || path == null || currentWaypoint >= path.Count) return;
 
-        Vector3 direction = (path[currentWaypoint].worldPosition - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
+        Vector3 targetWaypoint = path[currentWaypoint].worldPosition;
+        Vector3 direction = (targetWaypoint - transform.position);
+        float distanceToWaypoint = direction.magnitude;
 
-        float distance = Vector3.Distance(transform.position, path[currentWaypoint].worldPosition);
-        if (distance < nextWaypointDistance)
+        // Push Out Logic: If we are overlapping an obstacle, nudge away from it
+        Collider2D overlap = Physics2D.OverlapPoint(transform.position, AStarPathfinding.Instance.obstacleMask);
+        if (overlap != null)
+        {
+            Vector2 pushOutDir = (Vector2)(transform.position - overlap.bounds.center).normalized;
+            if (pushOutDir == Vector2.zero) pushOutDir = Random.insideUnitCircle.normalized; // Fallback
+            transform.position += (Vector3)pushOutDir * speed * 0.5f * Time.deltaTime;
+        }
+
+        // Move towards waypoint
+        if (distanceToWaypoint > 0.01f)
+        {
+            transform.position += direction.normalized * speed * Time.deltaTime;
+        }
+
+        if (distanceToWaypoint < nextWaypointDistance)
         {
             currentWaypoint++;
         }
