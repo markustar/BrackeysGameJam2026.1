@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     public float chaseSpeed = 4f;
     public float waypointWaitTime = 2f;
     public float stopDistance = 0.5f;
+    public float rotationSpeed = 360f;
 
     [Header("Combat")]
     public float attackRange = 1.2f;
@@ -26,7 +27,7 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Detection")]
     public float detectionMeter = 0f;
-    public float detectionSpeed = 50f;
+    public float detectionSpeed = 50f; // Percent per second
     public float detectionDecay = 20f;
     public float detectionThreshold = 100f;
     public string playerTag = "Player";
@@ -46,6 +47,11 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<PathFollower>();
         player = GameObject.FindGameObjectWithTag(playerTag)?.transform;
 
+        if (player == null)
+        {
+            Debug.LogError($"[EnemyAI] Player with tag '{playerTag}' NOT found in scene!");
+        }
+
         if (patrolPath != null && patrolPath.waypoints.Length > 0)
         {
             SetDestinationToWaypoint();
@@ -62,6 +68,7 @@ public class EnemyAI : MonoBehaviour
                 PatrolBehavior();
                 break;
             case State.Idle:
+                // Just waiting
                 break;
             case State.Chase:
                 ChaseBehavior();
@@ -71,20 +78,39 @@ public class EnemyAI : MonoBehaviour
                 break;
         }
 
+        // Update FOV orientation
         if (fov != null)
         {
             fov.SetOrigin(Vector3.zero);
             Vector3 moveDir = agent.velocity;
+
             if (moveDir.sqrMagnitude > 0.01f)
             {
+                float targetAngle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
+                Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+
+                // Rotate the body smoothly
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+                // CRITICAL: Point the FOV EXACTLY where we are moving, regardless of body lag
                 fov.SetAimDirection(moveDir);
-                float angle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0, 0, angle);
             }
             else if (currentState == State.Idle)
             {
-                float idleAngle = Mathf.Sin(Time.time * 2f) * 30f;
-                fov.SetAimDirection(transform.right + new Vector3(0, Mathf.Tan(idleAngle * Mathf.Deg2Rad), 0));
+                // Predictable idle rotation: Look left, then right
+                float peakAngle = 45f;
+                float cycleTime = 2f;
+                float t = (Time.time % cycleTime) / cycleTime;
+                float angleOffset = Mathf.PingPong(t * peakAngle * 4, peakAngle * 2) - peakAngle;
+
+                Quaternion idleRotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + angleOffset);
+                // Note: We don't want to permanently rotate the transform here as it messes up the base direction
+                // Instead, we just point the FOV
+                fov.SetAimDirection(Quaternion.Euler(0, 0, angleOffset) * transform.right);
+            }
+            else
+            {
+                fov.SetAimDirection(transform.right);
             }
         }
     }
