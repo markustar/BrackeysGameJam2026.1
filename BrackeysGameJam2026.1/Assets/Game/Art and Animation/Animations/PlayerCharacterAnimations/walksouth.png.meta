@@ -1,27 +1,7 @@
 fileFormatVersion: 2
-
 guid: b79b273e2603e014585fb49e85dad05e
-5231b952907ee3f53edf20a891c8af1e2d7e0632
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -1302630195998820792
-    second: walksouth_0
-  - first:
-      213: -5897653936381996357
-    second: walksouth_1
-  - first:
-      213: 8654599836340813693
-    second: walksouth_2
-  - first:
-      213: -4610361680432190302
-    second: walksouth_3
-  - first:
-      213: -2787221610296329576
-    second: walksouth_4
-  - first:
-      213: 5674791217169162100
-    second: walksouth_5
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,12 +34,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -68,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -83,16 +63,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -120,20 +100,20 @@ TextureImporter:
       name: walksouth_0
       rect:
         serializedVersion: 2
-        x: 24
+        x: 0
         y: 0
-        width: 19
-        height: 61
+        width: 62
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 846fac50db02cede0800000000000000
-      internalID: -1302630195998820792
+      spriteID: b6887a4b8e8813646843aaf43611a25d
+      internalID: -633990566
       vertices: []
       indices: 
       edges: []
@@ -142,20 +122,20 @@ TextureImporter:
       name: walksouth_1
       rect:
         serializedVersion: 2
-        x: 88
+        x: 72
         y: 0
-        width: 19
-        height: 60
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bb254c1fdf2572ea0800000000000000
-      internalID: -5897653936381996357
+      spriteID: 14b3f616735c86748b790bcf08de99ee
+      internalID: -1629532158
       vertices: []
       indices: 
       edges: []
@@ -164,20 +144,20 @@ TextureImporter:
       name: walksouth_2
       rect:
         serializedVersion: 2
-        x: 152
+        x: 135
         y: 0
-        width: 19
-        height: 61
+        width: 52
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d7f7f3672b05b1870800000000000000
-      internalID: 8654599836340813693
+      spriteID: 9b2c598d2fcecf2409683cbab06571f7
+      internalID: 1023106676
       vertices: []
       indices: 
       edges: []
@@ -186,20 +166,20 @@ TextureImporter:
       name: walksouth_3
       rect:
         serializedVersion: 2
-        x: 216
-        y: 1
-        width: 19
-        height: 59
+        x: 200
+        y: 0
+        width: 47
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2ac24c77a74b400c0800000000000000
-      internalID: -4610361680432190302
+      spriteID: 0c5b5f1bcbc63764c84b652774d1eb80
+      internalID: 1400305287
       vertices: []
       indices: 
       edges: []
@@ -208,20 +188,20 @@ TextureImporter:
       name: walksouth_4
       rect:
         serializedVersion: 2
-        x: 280
+        x: 262
         y: 0
-        width: 19
-        height: 60
+        width: 49
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 89abef776bcc159d0800000000000000
-      internalID: -2787221610296329576
+      spriteID: dc26868cb58c8844ab55b4a4f7edd6ee
+      internalID: -217750385
       vertices: []
       indices: 
       edges: []
@@ -230,20 +210,20 @@ TextureImporter:
       name: walksouth_5
       rect:
         serializedVersion: 2
-        x: 344
-        y: 1
-        width: 19
-        height: 60
+        x: 329
+        y: 0
+        width: 50
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 47fdfd1bb88e0ce40800000000000000
-      internalID: 5674791217169162100
+      spriteID: 414e29b9da019214c92637a5bb7fbb3f
+      internalID: 1090502862
       vertices: []
       indices: 
       edges: []
@@ -252,7 +232,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b5ab63137f80f364ab25b72cf83fe243
     internalID: 0
     vertices: []
     indices: 
@@ -262,12 +242,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      walksouth_0: -1302630195998820792
-      walksouth_1: -5897653936381996357
-      walksouth_2: 8654599836340813693
-      walksouth_3: -4610361680432190302
-      walksouth_4: -2787221610296329576
-      walksouth_5: 5674791217169162100
+      walksouth_0: -633990566
+      walksouth_1: -1629532158
+      walksouth_2: 1023106676
+      walksouth_3: 1400305287
+      walksouth_4: -217750385
+      walksouth_5: 1090502862
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

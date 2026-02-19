@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     bool canSprint = true;
     bool canSlowWalk = true;
     bool canAttack = true;
+    bool isMoving;
     
     InputManager inputManager;  
 
@@ -38,14 +40,23 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject attackHitBox;
     [SerializeField] float attackDuration = 0.3f;
     float attackTimer = 5f;
-    float lastAttackTime;
     [SerializeField] bool isAttacking = true ;
 
     [Header("Animation")]
 
     Animator anim;
-    bool isSprinting = false;
+
     
+    [Header("Sound")]
+    [SerializeField] AudioClip footSteps; 
+    [Range(0,1)]   
+    [SerializeField] float volume;
+    float footStepTimer;
+    [SerializeField] float currentFootStepTimer;
+
+    [SerializeField] float footStepTimerWalk = 0.6f;
+    [SerializeField] float footStepTimerRun = 0.2f;
+    [SerializeField] float footStepTimerSlowWalk = 1f;
 
     void Start()
     {
@@ -55,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
         attackHitBox.SetActive(false);
 
+        footStepTimer = 5f;
        
     }
 
@@ -129,35 +141,65 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void HandleMovement()
-    {
-        // walk
-        Addvelocity(walkSpeed);
-
-        // run
-            isSprinting = false;
+    {   
+        Vector2 input = inputManager.GetInput();
+        float currentSpeed = 0f;
+        if(input == Vector2.zero)
+        {
+            anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", false);
+            anim.SetBool("isSlowWalking", false);
+            isMoving = false;
+        }
+        // run Logic
+            
         if(inputManager.sprintAction.IsPressed() && canSprint)
         {
-            Addvelocity(runSpeed);
-            
+            currentSpeed = runSpeed;
+            currentFootStepTimer = footStepTimerRun;
+            isMoving = true;
             if(_playerRb.linearVelocity.magnitude > 0.1f)
             {
             StaminaSub(runCost);
-            isSprinting = true;
             anim.SetBool("isRunning", true);
+            PlaySound();
             }
+            anim.SetBool("isSlowWalking", false);
+             anim.SetBool("isWalking", false);
         }
-        // stealth
+        // stealth logic
 
-        if (inputManager.slowWalkAction.IsPressed() && canSlowWalk)
+        else if (inputManager.slowWalkAction.IsPressed() && canSlowWalk)
         {   
-            
-            Addvelocity(slowWalkSpeed);
+            currentSpeed = slowWalkSpeed;
+            currentFootStepTimer = footStepTimerSlowWalk;
+            isMoving = true;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isRunning", false);
+            if(input != Vector2.zero)
+            {
+            anim.SetBool("isSlowWalking", true);
+            PlaySound();
+            }
             StaminaSub(slowWalkCost);
             
         }
+        else // Walk Logic
+        {
+            currentSpeed = walkSpeed;
+            currentFootStepTimer = footStepTimerWalk;
+            isMoving = true;
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isSlowWalking", false);
+            if(input != Vector2.zero)
+            {
+            anim.SetBool("isWalking", true);
+            PlaySound();
+            }
+            
+        }
 
-       
+       Addvelocity(currentSpeed);
     
     }
 
@@ -254,4 +296,23 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("MoveX", snappedinput.x);
         anim.SetFloat("MoveY", snappedinput.y);
     }
+
+    
+    void PlaySound()
+    {
+       if(!isMoving)
+        {
+            footStepTimer = 0f;
+            return;
+        }
+
+        footStepTimer += Time.deltaTime;
+
+        if(footStepTimer >= currentFootStepTimer)
+        {
+            footStepTimer = 0f;
+            SoundFXManager.instance.PlaySoundFXClip(footSteps, this.transform, volume);
+        }
+    }
+
 }
