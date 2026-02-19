@@ -603,6 +603,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226aa6b8e49f0ef4b9d65fb651572d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  patrolPath: {fileID: 0}
+  patrolSpeed: 2
+  chaseSpeed: 4
+  waypointWaitTime: 2
+  stopDistance: 0.5
+  attackRange: 1.2
+  attackCooldown: 1.5
+  detectionMeter: 0
+  detectionSpeed: 50
+  detectionDecay: 20
+  detectionThreshold: 100
+  playerTag: Player
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  fov: {fileID: 0}
 --- !u!212 &1023820456
 SpriteRenderer:
   serializedVersion: 2
@@ -671,7 +687,7 @@ Transform:
   m_GameObject: {fileID: 1023820454}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.17, y: 0.29, z: 0}
+  m_LocalPosition: {x: -2.83, y: 0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
