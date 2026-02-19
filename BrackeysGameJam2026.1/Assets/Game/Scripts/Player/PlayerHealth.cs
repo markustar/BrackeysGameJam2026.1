@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour, IDamagable
 {
     public float maxHealth  { get ; set ; } = 100;
-   public float currentHealth { get ; set; } 
+    public float currentHealth { get ; set; } 
 
     
 

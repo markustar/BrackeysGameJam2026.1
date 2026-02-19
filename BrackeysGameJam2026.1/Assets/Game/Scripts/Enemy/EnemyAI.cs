@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     public float rotationSpeed = 360f;
 
     [Header("Combat")]
+    public float DealingDamage;
     public float attackRange = 1.2f;
     public float attackCooldown = 1.5f;
     private float lastAttackTime = 0f;
@@ -256,7 +257,7 @@ public class EnemyAI : MonoBehaviour
 
     private void PerformAttack()
     {
-        Debug.Log("Enemy Attacks Player!");
+        player.gameObject.GetComponent<PlayerHealth>().TakeDamage(DealingDamage);
     }
 
     private IEnumerator WaitAtWaypoint()
