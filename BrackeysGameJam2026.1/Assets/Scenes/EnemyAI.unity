@@ -1100,6 +1100,7 @@ GameObject:
   - component: {fileID: 1371224937}
   - component: {fileID: 1371224936}
   - component: {fileID: 1371224935}
+  - component: {fileID: 1371224938}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1125,7 +1126,7 @@ MonoBehaviour:
   waypointWaitTime: 2
   stopDistance: 0.5
   rotationSpeed: 360
-  DealingDamage: 0
+  DealingDamage: 20
   attackRange: 1.2
   attackCooldown: 1.5
   detectionMeter: 0
@@ -1170,6 +1171,18 @@ Transform:
   - {fileID: 336888944}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1371224938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371224934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58985e0ff8a8ff04088830a97c6501c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
 --- !u!1 &1510372255
 GameObject:
   m_ObjectHideFlags: 0
