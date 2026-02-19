@@ -146,7 +146,7 @@ public class AStarPathfinding : MonoBehaviour
         return neighbors;
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
         if (grid != null)
