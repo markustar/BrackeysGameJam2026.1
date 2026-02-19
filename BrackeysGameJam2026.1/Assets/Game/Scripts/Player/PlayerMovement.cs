@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Sound")]
     [SerializeField] AudioClip footSteps; 
+    [SerializeField] AudioClip swingAttack;
     [Range(0,1)]   
     [SerializeField] float volume;
     float footStepTimer;
@@ -272,6 +273,7 @@ public class PlayerMovement : MonoBehaviour
             attackHitBox.SetActive(true);
             playerStamina -= attackCost;
             stamina.fillAmount = playerStamina / maxStamina;
+            SoundFXManager.instance.PlaySoundFXClip(swingAttack, this.transform, volume);
         }
         
     }

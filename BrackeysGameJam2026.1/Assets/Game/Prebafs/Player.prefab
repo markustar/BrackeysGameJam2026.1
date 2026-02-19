@@ -282,6 +282,13 @@ MonoBehaviour:
   attackHitBox: {fileID: 4949315024428644080}
   attackDuration: 0.3
   isAttacking: 1
+  footSteps: {fileID: 8300000, guid: 3e241c214d48bc248bd3bc3574604b75, type: 3}
+  swingAttack: {fileID: 8300000, guid: 7289687524f739a46984de7ddcc691c4, type: 3}
+  volume: 0.418
+  currentFootStepTimer: 0
+  footStepTimerWalk: 0.6
+  footStepTimerRun: 0.3
+  footStepTimerSlowWalk: 1.2
 --- !u!114 &2919405030939297454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +301,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761eec30775c3dc43996767c38512db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  playerHurt:
+  - {fileID: 8300000, guid: d1bf0090b22a02b4abc3ca0aca55ec00, type: 3}
+  - {fileID: 8300000, guid: a28d435d534590840babb21c95f1b48c, type: 3}
+  - {fileID: 8300000, guid: eb1f7dda1e64f7a4f80aac1007058bfa, type: 3}
+  - {fileID: 8300000, guid: 04a4ec528d9c45e4aba029452754649c, type: 3}
+  playerDeath: {fileID: 8300000, guid: 7e4f203e587e8a543984fd46e4373ab6, type: 3}
+  healthBarFull: {fileID: 0}
+  volume: 0
 --- !u!1 &6246752031289608415
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +401,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5a8dbcc78d43ae54fb8d98fe8c389edf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
