@@ -44,19 +44,16 @@ public class TorchMechanic : MonoBehaviour
 
     private void GenerateBars()
     {
-        // Clear existing bars if any
         foreach (Transform child in batteryContainer)
         {
             Destroy(child.gameObject);
         }
         instantiatedBars.Clear();
 
-        // Generate new bars
         for (int i = 0; i < batteryCount; i++)
         {
             GameObject barObj = Instantiate(batteryBarPrefab, batteryContainer);
             
-            // Apply spacing to spread to the left
             RectTransform rect = barObj.GetComponent<RectTransform>();
             if (rect != null)
             {
@@ -141,7 +138,7 @@ public class TorchMechanic : MonoBehaviour
             UpdateTorchState();
         }
         
-        GenerateBars(); // Re-generate to remove the spent bar
+        GenerateBars();
         UpdateUI();
     }
 
@@ -177,7 +174,7 @@ public class TorchMechanic : MonoBehaviour
     public void AddBatteries(int amount)
     {
         batteryCount += amount;
-        GenerateBars(); // Re-generate bars to show the increase
+        GenerateBars();
         UpdateUI();
     }
 }
