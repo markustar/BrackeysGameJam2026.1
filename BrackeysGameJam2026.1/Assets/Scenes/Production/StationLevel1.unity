@@ -711,6 +711,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
+--- !u!1 &1170569675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170569676}
+  - component: {fileID: 1170569677}
+  m_Layer: 0
+  m_Name: StationAnnouncementManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1170569676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170569675}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1170569677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170569675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ba1a2693c1e8943a5c53692b191528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StationAnnouncementManager
+  announcements:
+  - {fileID: 8300000, guid: b6edfd7b856a2e140bfe6bd3cfe14ed0, type: 3}
+  - {fileID: 8300000, guid: 637a228b30a852e49a09b48bb8ac3663, type: 3}
+  - {fileID: 8300000, guid: 9d8ae35b84db4f64baa5bdf589317a08, type: 3}
 --- !u!1 &1202344083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,3 +1512,4 @@ SceneRoots:
   - {fileID: 1139624392}
   - {fileID: 372403827}
   - {fileID: 1401131635}
+  - {fileID: 1170569676}
