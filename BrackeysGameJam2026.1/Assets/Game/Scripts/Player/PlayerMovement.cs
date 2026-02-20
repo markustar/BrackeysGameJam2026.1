@@ -96,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
 
        Animate();
 
+      
+
         // Combat
 
         if(attackCost > playerStamina)
@@ -225,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
     float deceleration = 30f;
 
     Vector2 snappedinput;
-    void Addvelocity(float speed)
+    public void Addvelocity(float speed)
     {   
         Vector2 rawInput = inputManager.GetInput();
 

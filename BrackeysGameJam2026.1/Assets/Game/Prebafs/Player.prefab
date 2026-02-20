@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 8434430091211354097}
   - component: {fileID: 8159785870090101344}
   - component: {fileID: 2919405030939297454}
+  - component: {fileID: 5295526781996147629}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -190,6 +191,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3332672360873849290}
+  - {fileID: 8448747237024350232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5442872427518062412
@@ -307,8 +309,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eb1f7dda1e64f7a4f80aac1007058bfa, type: 3}
   - {fileID: 8300000, guid: 04a4ec528d9c45e4aba029452754649c, type: 3}
   playerDeath: {fileID: 8300000, guid: 7e4f203e587e8a543984fd46e4373ab6, type: 3}
+  timeStopDuration: 0.1
   healthBarFull: {fileID: 0}
   volume: 0.848
+--- !u!114 &5295526781996147629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983725985092759097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a99942d8cff8fe41ba71f19b4e07217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  _flashColor: {r: 0.7660377, g: 0.48126042, b: 0.4726308, a: 1}
+  _flashTime: 0.25
 --- !u!1 &6246752031289608415
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,8 +437,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 124101627
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1508545539406673221, guid: a8130ea0bd3c8474e8c9776aa2334ec4, type: 3}
@@ -456,3 +473,124 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &9216096885562696880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8448747237024350232}
+  - component: {fileID: 969676083788625848}
+  m_Layer: 0
+  m_Name: Freeform Light 2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8448747237024350232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216096885562696880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4644721069698651399}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &969676083788625848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216096885562696880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.397
+  m_Color: {r: 0.6528301, g: 0.55059445, b: 0.6221594, a: 1}
+  m_Intensity: 1.38
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 000000008d525887fba365071b26f4fa
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.22
+  m_PointLightOuterRadius: 2.14
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: 0.4145317, y: -0.10055137, z: 0}
+  - {x: 0.4049244, y: -0.0030062199, z: 0}
+  - {x: 0.37647057, y: 0.09079036, z: 0}
+  - {x: 0.33026695, y: 0.17723376, z: 0}
+  - {x: 0.26808548, y: 0.25300202, z: 0}
+  - {x: 0.19231606, y: 0.31518346, z: 0}
+  - {x: 0.19134171, y: 0.46193975, z: 0}
+  - {x: 0.23892975, y: 0.7778269, z: 0}
+  - {x: 0.07036972, y: 0.932447, z: 0}
+  - {x: -0.10559654, y: 0.9022818, z: 0}
+  - {x: -0.16852379, y: 0.79712856, z: 0}
+  - {x: -0.21117401, y: 0.71123403, z: 0}
+  - {x: -0.11565018, y: 0.5604069, z: 0}
+  - {x: -0.14879417, y: 0.47330993, z: 0}
+  - {x: -0.20842361, y: 0.3366661, z: 0}
+  - {x: -0.29317093, y: 0.24254632, z: 0}
+  - {x: -0.3133316, y: 0.15245044, z: 0}
+  - {x: -0.32680702, y: 0.09284282, z: 0}
+  - {x: -0.3905964, y: 0.08171016, z: 0}
+  - {x: -0.41166306, y: 0.08073509, z: 0}
+  - {x: -0.3998947, y: -0.033171535, z: 0}
+  - {x: -0.40950203, y: -0.13071674, z: 0}
+  - {x: -0.3998947, y: -0.22826195, z: 0}
+  - {x: -0.3714409, y: -0.32205838, z: 0}
+  - {x: -0.32523727, y: -0.4085018, z: 0}
+  - {x: -0.32338715, y: -0.37869132, z: 0}
+  - {x: -0.24761772, y: -0.44087273, z: 0}
+  - {x: -0.26641846, y: -0.92887443, z: 0}
+  - {x: -0.16856384, y: -1.4982941, z: 0}
+  - {x: -0.079034805, y: -0.99133545, z: 0}
+  - {x: -0.09754519, y: -0.49039263, z: 0}
+  - {x: 0.0000000059624403, y: -0.5, z: 0}
+  - {x: 0.09754521, y: -0.49039263, z: 0}
+  - {x: 0.07711983, y: -0.91325873, z: 0}
+  - {x: 0.1628685, y: -1.4982941, z: 0}
+  - {x: 0.24107933, y: -1.0303738, z: 0}
+  - {x: 0.19231606, y: -0.5162862, z: 0}
+  - {x: 0.26808548, y: -0.4541046, z: 0}
+  - {x: 0.33026695, y: -0.3783365, z: 0}
+  - {x: 0.37647057, y: -0.29189306, z: 0}
+  - {x: 0.4049244, y: -0.19809645, z: 0}
