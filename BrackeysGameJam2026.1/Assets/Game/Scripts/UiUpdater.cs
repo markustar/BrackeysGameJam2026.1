@@ -18,7 +18,7 @@ public class UiUpdater : MonoBehaviour
     void Start()
     {
         TorchLit.SetActive(false);
-        torchLightSpot.SetActive(false);
+        
         isLit = false;
     }
 
@@ -35,7 +35,7 @@ public class UiUpdater : MonoBehaviour
         {
             isLit = true;
             TorchLit.SetActive(true);
-            torchLightSpot.SetActive(true);
+            
             TorchUnlit.SetActive(false);
         }
 
@@ -43,7 +43,7 @@ public class UiUpdater : MonoBehaviour
         {
             isLit = false;
             TorchLit.SetActive(false);
-            torchLightSpot.SetActive(false);
+            
             TorchUnlit.SetActive(true);
         }
     }

@@ -1,5 +1,108 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1117112061029253033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6654341467541742667}
+  - component: {fileID: 8344959363515807540}
+  - component: {fileID: 4966623902192059061}
+  m_Layer: 0
+  m_Name: Torch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6654341467541742667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117112061029253033}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4644721069698651399}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8344959363515807540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117112061029253033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.61
+  m_Color: {r: 0.9245283, g: 0.8876228, b: 0.73700607, a: 1}
+  m_Intensity: 6.33
+  m_LightVolumeIntensity: 0.46
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.275
+  m_ShadowSoftness: 0.254
+  m_ShadowSoftnessFalloffIntensity: 0.144
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 64.15842
+  m_PointLightOuterAngle: 149.70297
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 7.85
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 2.6118023, y: 5.3447194, z: 0}
+  - {x: -3.0672865, y: 5.344721, z: 0}
+--- !u!114 &4966623902192059061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117112061029253033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c04eb45222ac74f96359bea4e62394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TorchMechanic
+  torchLight: {fileID: 8344959363515807540}
+  batteryCount: 3
+  batteryLifeSeconds: 15
+  batteryBarPrefab: {fileID: 4853465701832287915, guid: 4479f0c5ec9a3414e9552eab48708886, type: 3}
+  batteryContainer: {fileID: 0}
+  barSpacing: 40
 --- !u!1 &4949315024428644080
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +295,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3332672360873849290}
+  - {fileID: 6654341467541742667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5442872427518062412
@@ -255,8 +359,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.01622568, y: -0.013422728}
-  m_Size: {x: 0.35937735, y: 1.081326}
+  m_Offset: {x: 0.040246725, y: -0.01271832}
+  m_Size: {x: 0.738379, y: 2.6734746}
   m_Direction: 0
 --- !u!114 &8159785870090101344
 MonoBehaviour:
@@ -343,7 +447,7 @@ MonoBehaviour:
   BatteryUI: {fileID: 0}
   TorchUnlit: {fileID: 0}
   TorchLit: {fileID: 0}
-  torchLightSpot: {fileID: 9216096885562696880}
+  torchLightSpot: {fileID: 0}
   hasTorch: 0
 --- !u!1 &6246752031289608415
 GameObject:
@@ -375,7 +479,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1009206712982689514}
-  - {fileID: 8448747237024350232}
   m_Father: {fileID: 3332672360873849290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7644693224917726012
@@ -493,124 +596,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &9216096885562696880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8448747237024350232}
-  - component: {fileID: 969676083788625848}
-  m_Layer: 0
-  m_Name: Freeform Light 2D
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8448747237024350232
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9216096885562696880}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.315, y: 0, z: 0}
-  m_LocalScale: {x: 0.6666666, y: 0.6666666, z: 0.6666667}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9072350112223689059}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &969676083788625848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9216096885562696880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
-  m_ComponentVersion: 2
-  m_LightType: 3
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.186
-  m_Color: {r: 0.6528301, g: 0.55059445, b: 0.6221594, a: 1}
-  m_Intensity: 5.07
-  m_LightVolumeIntensity: 1
-  m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000008d5258871b26f4fa
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
-  m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.75
-  m_ShadowSoftness: 0.3
-  m_ShadowSoftnessFalloffIntensity: 0.5
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 0
-  m_PointLightOuterAngle: 136.99472
-  m_PointLightInnerRadius: 0.59
-  m_PointLightOuterRadius: 2.84
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: 0.4145317, y: -0.10055137, z: 0}
-  - {x: 0.4049244, y: -0.0030062199, z: 0}
-  - {x: 0.37647057, y: 0.09079036, z: 0}
-  - {x: 0.33026695, y: 0.17723376, z: 0}
-  - {x: 0.26808548, y: 0.25300202, z: 0}
-  - {x: 0.19231606, y: 0.31518346, z: 0}
-  - {x: 0.19134171, y: 0.46193975, z: 0}
-  - {x: 0.23892975, y: 0.7778269, z: 0}
-  - {x: 0.07036972, y: 0.932447, z: 0}
-  - {x: -0.10559654, y: 0.9022818, z: 0}
-  - {x: -0.16852379, y: 0.79712856, z: 0}
-  - {x: -0.21117401, y: 0.71123403, z: 0}
-  - {x: -0.11565018, y: 0.5604069, z: 0}
-  - {x: -0.14879417, y: 0.47330993, z: 0}
-  - {x: -0.20842361, y: 0.3366661, z: 0}
-  - {x: -0.29317093, y: 0.24254632, z: 0}
-  - {x: -0.3133316, y: 0.15245044, z: 0}
-  - {x: -0.32680702, y: 0.09284282, z: 0}
-  - {x: -0.3905964, y: 0.08171016, z: 0}
-  - {x: -0.41166306, y: 0.08073509, z: 0}
-  - {x: -0.3998947, y: -0.033171535, z: 0}
-  - {x: -0.40950203, y: -0.13071674, z: 0}
-  - {x: -0.3998947, y: -0.22826195, z: 0}
-  - {x: -0.3714409, y: -0.32205838, z: 0}
-  - {x: -0.32523727, y: -0.4085018, z: 0}
-  - {x: -0.32338715, y: -0.37869132, z: 0}
-  - {x: -0.24761772, y: -0.44087273, z: 0}
-  - {x: -0.26641846, y: -0.92887443, z: 0}
-  - {x: -0.16856384, y: -1.4982941, z: 0}
-  - {x: -0.079034805, y: -0.99133545, z: 0}
-  - {x: -0.09754519, y: -0.49039263, z: 0}
-  - {x: 0.0000000059624403, y: -0.5, z: 0}
-  - {x: 0.09754521, y: -0.49039263, z: 0}
-  - {x: 0.07711983, y: -0.91325873, z: 0}
-  - {x: 0.1628685, y: -1.4982941, z: 0}
-  - {x: 0.24107933, y: -1.0303738, z: 0}
-  - {x: 0.19231606, y: -0.5162862, z: 0}
-  - {x: 0.26808548, y: -0.4541046, z: 0}
-  - {x: 0.33026695, y: -0.3783365, z: 0}
-  - {x: 0.37647057, y: -0.29189306, z: 0}
-  - {x: 0.4049244, y: -0.19809645, z: 0}

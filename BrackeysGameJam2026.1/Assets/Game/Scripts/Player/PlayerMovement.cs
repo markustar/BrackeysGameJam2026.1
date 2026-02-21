@@ -351,13 +351,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void TorchRotater(GameObject gameObject)
-    {
-        Vector3 offset = new Vector3(facingDirection.x, facingDirection.y, 0) * 0.06f;
-        gameObject.transform.localPosition = offset;
-
-        float angle = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
-        gameObject.transform.localRotation = Quaternion.Euler(0,0,angle -90);
-    }
+   
 
 }
