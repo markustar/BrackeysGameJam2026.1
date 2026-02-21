@@ -102,7 +102,7 @@ MonoBehaviour:
   batteryLifeSeconds: 15
   batteryBarPrefab: {fileID: 4853465701832287915, guid: 4479f0c5ec9a3414e9552eab48708886, type: 3}
   batteryContainer: {fileID: 0}
-  barSpacing: 40
+  barSpacing: 150
 --- !u!1 &4949315024428644080
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +377,7 @@ MonoBehaviour:
   walkSpeed: 2
   runSpeed: 5
   slowWalkSpeed: 0.4
+  IsCrouching: 0
   maxStamina: 100
   playerStamina: 100
   runCost: 15
@@ -418,6 +419,7 @@ MonoBehaviour:
   timeStopDuration: 0.1
   healthBarFull: {fileID: 0}
   volume: 0.848
+  devDebugBool: 0
 --- !u!114 &5295526781996147629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f2f23ae97441341ab70df92c4cbe6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UiUpdater
-  BatteryUI: {fileID: 0}
   TorchUnlit: {fileID: 0}
   TorchLit: {fileID: 0}
   hasTorch: 1

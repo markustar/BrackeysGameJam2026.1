@@ -54,7 +54,7 @@ public class TorchMechanic : MonoBehaviour
             RectTransform rect = barObj.GetComponent<RectTransform>();
             if (rect != null)
             {
-                rect.anchoredPosition = new Vector2(i * -barSpacing, 0);
+                rect.anchoredPosition = new Vector2(i * barSpacing, 0);
             }
 
             Image barImage = barObj.GetComponent<Image>();
@@ -165,7 +165,7 @@ public class TorchMechanic : MonoBehaviour
 
         for (int i = 0; i < instantiatedBars.Count; i++)
         {
-            Image barFill = instantiatedBars[i].transform.GetChild(0).GetComponent<Image>();
+            Image barFill = instantiatedBars[i];
 
             if (i < batteryCount - 1)
             {
