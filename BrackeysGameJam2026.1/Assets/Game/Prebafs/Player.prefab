@@ -102,7 +102,7 @@ MonoBehaviour:
   batteryLifeSeconds: 15
   batteryBarPrefab: {fileID: 4853465701832287915, guid: 4479f0c5ec9a3414e9552eab48708886, type: 3}
   batteryContainer: {fileID: 0}
-  barSpacing: 150
+  barSpacing: 90
 --- !u!1 &4949315024428644080
 GameObject:
   m_ObjectHideFlags: 0

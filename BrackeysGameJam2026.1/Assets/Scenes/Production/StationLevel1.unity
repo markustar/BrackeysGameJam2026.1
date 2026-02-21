@@ -211,14 +211,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7107400792929033819, guid: 50d3553aeddcd54409f964f44fda4099, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1550
-      objectReference: {fileID: 0}
-    - target: {fileID: 7107400792929033819, guid: 50d3553aeddcd54409f964f44fda4099, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 677
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -761,10 +753,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4966623902192059061, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
-      propertyPath: barSpacing
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966623902192059061, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
       propertyPath: batteryContainer
       value: 
       objectReference: {fileID: 372403828}
@@ -777,17 +765,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1414987867}
     - target: {fileID: 6798955950373392757, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
-      propertyPath: BatteryUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6798955950373392757, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
       propertyPath: TorchUnlit
       value: 
       objectReference: {fileID: 1655526765}
-    - target: {fileID: 6798955950373392757, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
-      propertyPath: torchLightSpot
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8159785870090101344, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
       propertyPath: stamina
       value: 
