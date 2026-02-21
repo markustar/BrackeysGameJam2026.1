@@ -3,6 +3,9 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamagable
 {
     [SerializeField] private float initialHealth = 100f;
+    [SerializeField] private AudioClip[] enemyhurt;
+    [Range(0,1)]
+    [SerializeField] private float volume = 0.5f;
     
     public float maxHealth { get; set; }
     public float currentHealth { get; set; }
@@ -35,9 +38,11 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         }
 
         DamageFlash damageFlash = this.gameObject.GetComponentInChildren<DamageFlash>();
-        if (damageFlash != null)
-        {
+        if(damageFlash != null)
+        {   
             damageFlash.CallCouroutine();
         }
+
+        SoundFXManager.instance.PlayRandomSoundFXClip(enemyhurt, this.transform, volume);
     }
 }

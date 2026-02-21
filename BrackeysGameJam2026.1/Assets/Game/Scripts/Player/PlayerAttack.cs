@@ -3,6 +3,11 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public int damage = 15;
+    EnemyHealth enemyHealth;
+    void Awake()
+    {
+        enemyHealth = FindAnyObjectByType<EnemyHealth>();
+    }
     void Start()
     {
         
@@ -19,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
         EnemyAI enemy = collision.gameObject.GetComponent<EnemyAI>();
         if(enemy)
         {
-            Debug.Log("Enemy Hit" + damage);
+            enemyHealth.TakeDamage(damage);
         }
     }
 }
