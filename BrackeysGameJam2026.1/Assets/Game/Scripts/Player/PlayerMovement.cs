@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     bool canSlowWalk = true;
     bool canAttack = true;
     bool isMoving;
+    public bool IsCrouching = false;
     
     
     InputManager inputManager;  
@@ -186,7 +187,8 @@ public class PlayerMovement : MonoBehaviour
         // stealth logic
 
         else if (inputManager.slowWalkAction.IsPressed() && canSlowWalk)
-        {   
+        {
+            IsCrouching = true;
             currentSpeed = slowWalkSpeed;
             currentFootStepTimer = footStepTimerSlowWalk;
             isMoving = true;
@@ -202,6 +204,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else // Walk Logic
         {
+            IsCrouching = false;
             currentSpeed = walkSpeed;
             currentFootStepTimer = footStepTimerWalk;
             isMoving = true;

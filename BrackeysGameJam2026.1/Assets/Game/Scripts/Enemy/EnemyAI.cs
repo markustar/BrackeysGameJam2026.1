@@ -45,6 +45,7 @@ public class EnemyAI : MonoBehaviour
     private int currentWaypointIndex = 0;
     private State currentState = State.Patrol;
     private Transform player;
+    private PlayerMovement playerMovement;
     private Vector3 lastSeenPlayerPos;
     private bool isWaiting = false;
     private bool canSeePlayer = false;
@@ -53,7 +54,11 @@ public class EnemyAI : MonoBehaviour
     {
         agent = GetComponent<PathFollower>();
         player = GameObject.FindGameObjectWithTag(playerTag)?.transform;
-        if (player == null)
+        if (player != null)
+        {
+            playerMovement = player.GetComponent<PlayerMovement>();
+        }
+        else
         {
             Debug.LogError($"[EnemyAI] Player with tag '{playerTag}' NOT found in scene!");
         }
@@ -153,6 +158,12 @@ public class EnemyAI : MonoBehaviour
         if (player == null) return;
 
         canSeePlayer = fov != null && fov.IsPlayerInRange(player, playerTag);
+
+        // Stealth logic: Enemy can't see the player if they are crouching
+        if (playerMovement != null && playerMovement.IsCrouching)
+        {
+            canSeePlayer = false;
+        }
 
         if (canSeePlayer)
         {
