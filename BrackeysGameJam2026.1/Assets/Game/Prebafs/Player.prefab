@@ -79,12 +79,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 124101627
+  m_SortingLayer: 2
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.26666668}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 8159785870090101344}
   - component: {fileID: 2919405030939297454}
   - component: {fileID: 5295526781996147629}
+  - component: {fileID: 6798955950373392757}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -191,7 +192,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3332672360873849290}
-  - {fileID: 8448747237024350232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5442872427518062412
@@ -291,6 +291,8 @@ MonoBehaviour:
   footStepTimerWalk: 0.6
   footStepTimerRun: 0.4
   footStepTimerSlowWalk: 1.2
+  attackRange: 0.8
+  hasWeapon: 0
 --- !u!114 &2919405030939297454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +328,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
   _flashColor: {r: 0.7660377, g: 0.48126042, b: 0.4726308, a: 1}
   _flashTime: 0.25
+--- !u!114 &6798955950373392757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983725985092759097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f2f23ae97441341ab70df92c4cbe6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiUpdater
+  BatteryUI: {fileID: 0}
+  TorchUnlit: {fileID: 0}
+  TorchLit: {fileID: 0}
+  torchLightSpot: {fileID: 9216096885562696880}
+  hasTorch: 0
 --- !u!1 &6246752031289608415
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +375,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1009206712982689514}
+  - {fileID: 8448747237024350232}
   m_Father: {fileID: 3332672360873849290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7644693224917726012
@@ -498,13 +518,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9216096885562696880}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.315, y: 0, z: 0}
+  m_LocalScale: {x: 0.6666666, y: 0.6666666, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4644721069698651399}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 9072350112223689059}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &969676083788625848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,12 +540,12 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.397
+  m_FalloffIntensity: 0.186
   m_Color: {r: 0.6528301, g: 0.55059445, b: 0.6221594, a: 1}
-  m_Intensity: 1.38
+  m_Intensity: 5.07
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000008d525887fba365071b26f4fa
+  m_ApplyToSortingLayers: 000000008d5258871b26f4fa
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -543,10 +563,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.22
-  m_PointLightOuterRadius: 2.14
+  m_PointLightInnerAngle: 0
+  m_PointLightOuterAngle: 136.99472
+  m_PointLightInnerRadius: 0.59
+  m_PointLightOuterRadius: 2.84
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

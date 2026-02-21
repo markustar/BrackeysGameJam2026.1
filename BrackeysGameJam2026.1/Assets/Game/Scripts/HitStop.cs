@@ -3,19 +3,11 @@ using UnityEngine;
 
 public class HitStop : MonoBehaviour
 {
-    public static HitStop Instance;
+   
     bool isWaiting;
     void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        
     }
    public void StopTime(float duration)
     {   

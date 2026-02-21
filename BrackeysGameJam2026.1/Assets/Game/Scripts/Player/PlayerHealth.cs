@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamagable
 {
-    public float maxHealth  { get ; set ; } = 1000;
+    public float maxHealth  { get ; set ; } = 100;
     public float currentHealth { get ; set; } 
     [SerializeField] AudioClip[] playerHurt;
     [SerializeField] AudioClip playerDeath;
@@ -15,7 +15,11 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     PlayerMovement player;
 
-   
+   HitStop hit;
+    void Awake()
+    {
+        hit = FindFirstObjectByType<HitStop>();
+    }
     void Start()
     {
         currentHealth = maxHealth;
@@ -39,7 +43,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         currentHealth -= damage;
         player.Addvelocity(0);
         DamageFlash.Instance.CallCouroutine();
-        HitStop.Instance.StopTime(timeStopDuration);
+        hit.StopTime(timeStopDuration);
         SoundFXManager.instance.PlayRandomSoundFXClip(playerHurt, this.transform, volume);
         healthBarFull.fillAmount = currentHealth / maxHealth;
     }

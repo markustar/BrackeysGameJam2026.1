@@ -1,8 +1,11 @@
 
 using System;
 using System.Collections;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -40,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject attackHitBox;
     [SerializeField] float attackDuration = 0.3f;
     float attackTimer = 5f;
-    [SerializeField] bool isAttacking = true ;
+    [SerializeField] public bool isAttacking = true ;
 
     [Header("Animation")]
 
@@ -106,7 +109,8 @@ public class PlayerMovement : MonoBehaviour
         MousePosToWorlView();
         CheckIfCanAttack();
     }
-
+    Vector2 direction;
+    Vector2 aimDirection;
     private void MousePosToWorlView()
     {
         Vector3 mousePos;
@@ -115,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0f;
 
-            Vector2 direction = mousePos - aimPos.position;
+            direction = mousePos - aimPos.position;
             // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             // aimPos.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -123,16 +127,20 @@ public class PlayerMovement : MonoBehaviour
             if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             {
                 if(direction.x > 0)
-                aimPos.rotation = Quaternion.Euler(0,0,0);
+                // aimPos.rotation = Quaternion.Euler(0,0,0);
+                aimDirection = Vector2.right;
                 else 
-                 aimPos.rotation = Quaternion.Euler(0,0,180);
+                //  aimPos.rotation = Quaternion.Euler(0,0,180);
+                aimDirection = Vector2.left;
             }
             else
             {
                 if(direction.y > 0)
-                 aimPos.rotation = Quaternion.Euler(0,0,90);
+                //  aimPos.rotation = Quaternion.Euler(0,0,90);
+                aimDirection = Vector2.up;
                 else
-                 aimPos.rotation = Quaternion.Euler(0,0,-90);
+                //  aimPos.rotation = Quaternion.Euler(0,0,-90);
+                aimDirection = Vector2.down;
             }
             HandleAttack();
         }
@@ -147,12 +155,13 @@ public class PlayerMovement : MonoBehaviour
     {   
         Vector2 input = inputManager.GetInput();
         float currentSpeed = 0f;
-        if(input == Vector2.zero)
+        if(input == Vector2.zero || isAttacking)
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", false);
             anim.SetBool("isSlowWalking", false);
             isMoving = false;
+            Addvelocity(0);
         }
         // run Logic
             
@@ -227,6 +236,7 @@ public class PlayerMovement : MonoBehaviour
     float deceleration = 30f;
 
     Vector2 snappedinput;
+    Vector2 facingDirection;
     public void Addvelocity(float speed)
     {   
         Vector2 rawInput = inputManager.GetInput();
@@ -236,7 +246,10 @@ public class PlayerMovement : MonoBehaviour
         if(rawInput.y > 0) snappedinput = Vector2.up;
         if(rawInput.y < 0) snappedinput = Vector2.down;
         
-
+        if(snappedinput != Vector2.zero)
+        {
+            facingDirection = snappedinput;
+        }
         targetVelocity = snappedinput * speed;
         // _playerRb.linearVelocity = Vector2.Lerp(_playerRb.linearVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
         if(inputManager.GetInput() != Vector2.zero && !isAttacking)
@@ -267,24 +280,40 @@ public class PlayerMovement : MonoBehaviour
         regenStamina = null;
     }
 
+    Vector2 attackingDirection;
+    [SerializeField] float attackRange = 0.8f;
+    [SerializeField] public bool hasWeapon = false;
     void HandleAttack()
-    {
-        if(!isAttacking)
-        {
+    {   
+        
+        attackingDirection = facingDirection;
+        if(isAttacking || !canAttack || !hasWeapon) return;
+
+        Vector3 offset = new Vector3(facingDirection.x, facingDirection.y, 0) * attackRange;
+        attackHitBox.transform.localPosition = offset;
+        float angle = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
+        attackHitBox.transform.localRotation = Quaternion.Euler(0,0,angle + 90);
+        
             isAttacking = true;
             attackHitBox.SetActive(true);
+            Addvelocity(0);
+             anim.SetFloat("AttackX", attackingDirection.x);
+        anim.SetFloat("AttackY", attackingDirection.y);
+        anim.Play("Player Attack Blend Tree", 0,0f);
             playerStamina -= attackCost;
             stamina.fillAmount = playerStamina / maxStamina;
             SoundFXManager.instance.PlaySoundFXClip(swingAttack, this.transform, volume);
-        }
+        
+
         
     }
 
     void CheckIfCanAttack()
     {
         if(isAttacking)
-        {
+        {   
             attackTimer += Time.deltaTime;
+            Addvelocity(0);
             if(attackTimer >= attackDuration)
             {
                 attackTimer = 0;
@@ -299,6 +328,9 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetFloat("MoveX", snappedinput.x);
         anim.SetFloat("MoveY", snappedinput.y);
+
+       
+        
     }
 
     
@@ -317,6 +349,15 @@ public class PlayerMovement : MonoBehaviour
             footStepTimer = 0f;
             SoundFXManager.instance.PlaySoundFXClip(footSteps, this.transform, volume);
         }
+    }
+
+    public void TorchRotater(GameObject gameObject)
+    {
+        Vector3 offset = new Vector3(facingDirection.x, facingDirection.y, 0) * 0.06f;
+        gameObject.transform.localPosition = offset;
+
+        float angle = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
+        gameObject.transform.localRotation = Quaternion.Euler(0,0,angle -90);
     }
 
 }
