@@ -57,7 +57,7 @@ public class TorchMechanic : MonoBehaviour
                 rect.anchoredPosition = new Vector2(i * -barSpacing, 0);
             }
 
-            Image barImage = barObj.GetComponentInChildren<Image>();
+            Image barImage = barObj.GetComponent<Image>();
             if (barImage != null)
             {
                 instantiatedBars.Add(barImage);
@@ -72,8 +72,20 @@ public class TorchMechanic : MonoBehaviour
         Vector2 moveInput = inputManager.GetInput();
         if (moveInput != Vector2.zero && torchLight != null)
         {
-            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-            torchLight.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+            float targetAngle = 0f;
+
+            if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y))
+            {
+                // Horizontal priority
+                targetAngle = moveInput.x > 0 ? -90f : 90f; // Right : Left
+            }
+            else
+            {
+                // Vertical priority
+                targetAngle = moveInput.y > 0 ? 0f : 180f; // Up : Down
+            }
+
+            torchLight.transform.rotation = Quaternion.Euler(0, 0, targetAngle);
         }
     }
 
