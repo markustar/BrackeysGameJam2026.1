@@ -36,10 +36,7 @@ public class TorchMechanic : MonoBehaviour
         HandleRotation();
         HandleBatteryConsumption();
         
-        if (isTorchOn)
-        {
-            UpdateUI();
-        }
+        UpdateUI();
     }
 
     private void GenerateBars()
@@ -60,7 +57,7 @@ public class TorchMechanic : MonoBehaviour
                 rect.anchoredPosition = new Vector2(i * -barSpacing, 0);
             }
 
-            Image barImage = barObj.GetComponent<Image>();
+            Image barImage = barObj.GetComponentInChildren<Image>();
             if (barImage != null)
             {
                 instantiatedBars.Add(barImage);
@@ -156,17 +153,19 @@ public class TorchMechanic : MonoBehaviour
 
         for (int i = 0; i < instantiatedBars.Count; i++)
         {
+            Image barFill = instantiatedBars[i].transform.GetChild(0).GetComponent<Image>();
+
             if (i < batteryCount - 1)
             {
-                instantiatedBars[i].fillAmount = 1f;
+                barFill.fillAmount = 1f;
             }
             else if (i == batteryCount - 1)
             {
-                instantiatedBars[i].fillAmount = currentBatteryLife / batteryLifeSeconds;
+                barFill.fillAmount = currentBatteryLife / batteryLifeSeconds;
             }
             else
             {
-                instantiatedBars[i].fillAmount = 0f;
+                barFill.fillAmount = 0f;
             }
         }
     }
