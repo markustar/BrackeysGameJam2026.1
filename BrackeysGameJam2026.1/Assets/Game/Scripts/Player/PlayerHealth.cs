@@ -15,10 +15,12 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     PlayerMovement player;
 
-   HitStop hit;
+    HitStop hit;
+    DamageFlash damageFlash;
     void Awake()
     {
         hit = FindFirstObjectByType<HitStop>();
+        damageFlash = GetComponentInChildren<DamageFlash>();
     }
     void Start()
     {
@@ -43,7 +45,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         currentHealth -= damage;
         if (player != null) player.Addvelocity(0);
         
-        if (DamageFlash.Instance != null) DamageFlash.Instance.CallCouroutine();
+        if (damageFlash != null) damageFlash.CallCouroutine();
         if (hit != null) hit.StopTime(timeStopDuration);
         if (SoundFXManager.instance != null) SoundFXManager.instance.PlayRandomSoundFXClip(playerHurt, this.transform, volume);
         if (healthBarFull != null) healthBarFull.fillAmount = currentHealth / maxHealth;

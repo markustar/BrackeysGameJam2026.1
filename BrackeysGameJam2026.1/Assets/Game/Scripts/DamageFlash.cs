@@ -4,27 +4,16 @@ using UnityEngine;
 public class DamageFlash : MonoBehaviour
 {
 
-    public static DamageFlash Instance;
-    
-   [SerializeField] Color _flashColor = Color.white;
-   [SerializeField] float _flashTime = 0.25f;
+    [SerializeField] Color _flashColor = Color.white;
+    [SerializeField] float _flashTime = 0.25f;
 
-   SpriteRenderer spriteRenderer;
-   Material material;
+    SpriteRenderer spriteRenderer;
+    Material material;
 
-   private Coroutine damageFlashCoroutine;
+    private Coroutine damageFlashCoroutine;
 
     void Awake()
     {   
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         Innit();
     }

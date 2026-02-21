@@ -13,7 +13,6 @@ public class EnemyAI : MonoBehaviour
     }
 
     [Header("Navigation")]
-    public PatrolPath patrolPath;
     public float patrolSpeed = 2f;
     public float chaseSpeed = 4f;
     public float waypointWaitTime = 2f;
@@ -41,6 +40,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Animation")]
     public EnemyAnimation enemyAnimation;
 
+    private PatrolPath patrolPath;
     private PathFollower agent;
     private int currentWaypointIndex = 0;
     private State currentState = State.Patrol;
@@ -53,7 +53,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent = GetComponent<PathFollower>();
         player = GameObject.FindGameObjectWithTag(playerTag)?.transform;
-
+        patrolPath = GameObject.FindGameObjectWithTag("Path").GetComponent<PatrolPath>();
         if (player == null)
         {
             Debug.LogError($"[EnemyAI] Player with tag '{playerTag}' NOT found in scene!");
