@@ -1307,6 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+
 --- !u!1 &1555431224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,6 +1383,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555431224}
   m_CullTransparentMesh: 1
+
 --- !u!1 &1652350846
 GameObject:
   m_ObjectHideFlags: 0
