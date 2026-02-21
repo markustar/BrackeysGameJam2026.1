@@ -41,11 +41,12 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        player.Addvelocity(0);
-        DamageFlash.Instance.CallCouroutine();
-        hit.StopTime(timeStopDuration);
-        SoundFXManager.instance.PlayRandomSoundFXClip(playerHurt, this.transform, volume);
-        healthBarFull.fillAmount = currentHealth / maxHealth;
+        if (player != null) player.Addvelocity(0);
+        
+        if (DamageFlash.Instance != null) DamageFlash.Instance.CallCouroutine();
+        if (hit != null) hit.StopTime(timeStopDuration);
+        if (SoundFXManager.instance != null) SoundFXManager.instance.PlayRandomSoundFXClip(playerHurt, this.transform, volume);
+        if (healthBarFull != null) healthBarFull.fillAmount = currentHealth / maxHealth;
     }
 
     public void Death()

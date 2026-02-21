@@ -221,8 +221,9 @@ GameObject:
   m_Component:
   - component: {fileID: 336888944}
   - component: {fileID: 336888945}
+  - component: {fileID: 336888946}
   m_Layer: 0
-  m_Name: Visuals
+  m_Name: EnemyVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,6 +303,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &336888946
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336888943}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37b3a523344e8c1448d6dd32e425b243, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &703563860
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,9 +432,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdeb7c41aa9a5146acf304f6dbb9916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  walkSpeed: 5
-  runSpeed: 8
-  slowWalkSpeed: 3
+  walkSpeed: 2
+  runSpeed: 5
+  slowWalkSpeed: 0.4
   maxStamina: 100
   playerStamina: 100
   runCost: 15
@@ -419,10 +442,19 @@ MonoBehaviour:
   attackCost: 25
   chargeRate: 25
   stamina: {fileID: 1262443962}
-  aimPos: {fileID: 1510372256}
-  attackHitBox: {fileID: 1605668142}
+  aimPos: {fileID: 9072350112223689059, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
+  attackHitBox: {fileID: 4949315024428644080, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
   attackDuration: 0.3
   isAttacking: 1
+  footSteps: {fileID: 8300000, guid: 3e241c214d48bc248bd3bc3574604b75, type: 3}
+  swingAttack: {fileID: 8300000, guid: 7289687524f739a46984de7ddcc691c4, type: 3}
+  volume: 0.876
+  currentFootStepTimer: 0
+  footStepTimerWalk: 0.6
+  footStepTimerRun: 0.4
+  footStepTimerSlowWalk: 1.2
+  attackRange: 0.8
+  hasWeapon: 0
 --- !u!70 &832793690
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -516,6 +548,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761eec30775c3dc43996767c38512db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  playerHurt:
+  - {fileID: 8300000, guid: d1bf0090b22a02b4abc3ca0aca55ec00, type: 3}
+  - {fileID: 8300000, guid: a28d435d534590840babb21c95f1b48c, type: 3}
+  - {fileID: 8300000, guid: eb1f7dda1e64f7a4f80aac1007058bfa, type: 3}
+  - {fileID: 8300000, guid: 04a4ec528d9c45e4aba029452754649c, type: 3}
+  playerDeath: {fileID: 8300000, guid: 7e4f203e587e8a543984fd46e4373ab6, type: 3}
+  timeStopDuration: 0.1
+  healthBarFull: {fileID: 0}
+  volume: 0.848
 --- !u!1 &865922615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1142,7 @@ GameObject:
   - component: {fileID: 1371224936}
   - component: {fileID: 1371224935}
   - component: {fileID: 1371224938}
+  - component: {fileID: 1371224939}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1139,6 +1181,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   fov: {fileID: 1236279428}
+  enemyAnimation: {fileID: 1371224939}
 --- !u!114 &1371224936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1226,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58985e0ff8a8ff04088830a97c6501c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+--- !u!114 &1371224939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371224934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0dc9b0f0a959d459ae0cfee7c6f333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimation
+  animator: {fileID: 336888946}
+  graphicTransform: {fileID: 336888944}
 --- !u!1 &1510372255
 GameObject:
   m_ObjectHideFlags: 0

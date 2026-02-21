@@ -38,6 +38,9 @@ public class EnemyAI : MonoBehaviour
     [Header("References")]
     public FieldOfView fov;
 
+    [Header("Animation")]
+    public EnemyAnimation enemyAnimation;
+
     private PathFollower agent;
     private int currentWaypointIndex = 0;
     private State currentState = State.Patrol;
@@ -138,6 +141,11 @@ public class EnemyAI : MonoBehaviour
             {
                 fov.SetAimDirection(transform.right);
             }
+        }
+
+        if (enemyAnimation != null && agent != null)
+        {
+            enemyAnimation.UpdateMovement(transform.right, agent.velocity.magnitude);
         }
     }
 
@@ -257,6 +265,10 @@ public class EnemyAI : MonoBehaviour
 
     private void PerformAttack()
     {
+        if (enemyAnimation != null)
+        {
+            enemyAnimation.TriggerAttack();
+        }
         player.gameObject.GetComponent<PlayerHealth>().TakeDamage(DealingDamage);
     }
 

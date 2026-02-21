@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamagable
 {
+    [SerializeField] private float initialHealth = 100f;
+    
     public float maxHealth { get; set; }
     public float currentHealth { get; set; }
 
     void Start()
     {
+        maxHealth = initialHealth;
         currentHealth = maxHealth;
     }
 
