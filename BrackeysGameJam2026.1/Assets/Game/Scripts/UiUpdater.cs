@@ -6,7 +6,7 @@ public class UiUpdater : MonoBehaviour
     [SerializeField] GameObject BatteryUI;
     [SerializeField] GameObject TorchUnlit;
     [SerializeField] GameObject TorchLit;
-    [SerializeField] GameObject torchLightSpot;
+  
     bool isLit = false;
     PlayerMovement player;
     [SerializeField] public bool hasTorch;
@@ -26,12 +26,12 @@ public class UiUpdater : MonoBehaviour
     void Update()
     {
         TorchOnandOffandUiUpdater();
-        player.TorchRotater(torchLightSpot);
+        
     }
 
     private void TorchOnandOffandUiUpdater()
     {
-        if (Input.GetKeyDown(KeyCode.J) && !isLit && hasTorch)
+        if (Input.GetKeyDown(KeyCode.F) && !isLit && hasTorch)
         {
             isLit = true;
             TorchLit.SetActive(true);
@@ -39,7 +39,7 @@ public class UiUpdater : MonoBehaviour
             TorchUnlit.SetActive(false);
         }
 
-        else if (Input.GetKeyDown(KeyCode.J) && isLit)
+        else if (Input.GetKeyDown(KeyCode.F) && isLit)
         {
             isLit = false;
             TorchLit.SetActive(false);
