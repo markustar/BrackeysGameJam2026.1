@@ -54,12 +54,13 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     public void Death()
     {   
         SoundFXManager.instance.PlaySoundFXClip(playerDeath, this.transform, volume);
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 2f);
     }
 
+    [SerializeField] bool devDebugBool;
     void DebugTakeDamage()
     {
-        if(Input.GetKeyDown(KeyCode.G))
+        if(Input.GetKeyDown(KeyCode.G) && devDebugBool)
         {
             TakeDamage(25);
         }

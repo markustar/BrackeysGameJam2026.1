@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UiUpdater : MonoBehaviour
 {
-    [SerializeField] GameObject BatteryUI;
+    
     [SerializeField] GameObject TorchUnlit;
     [SerializeField] GameObject TorchLit;
   
