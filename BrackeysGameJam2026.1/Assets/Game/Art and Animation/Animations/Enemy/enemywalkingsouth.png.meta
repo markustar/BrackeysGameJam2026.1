@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: ccc4748b988b62947af8af2cbe23c417
+guid: cc1fa7174510c0248a75cbe637631025
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5816282280665020950
-    second: chair9_0
+      213: 3428050093478924201
+    second: enemywalkingsouth_0
+  - first:
+      213: -2933440261722905252
+    second: enemywalkingsouth_1
+  - first:
+      213: 2395912304783064018
+    second: enemywalkingsouth_2
+  - first:
+      213: 8315380586391245915
+    second: enemywalkingsouth_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,12 +109,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chair9_0
+      name: enemywalkingsouth_0
       rect:
         serializedVersion: 2
-        x: 323
-        y: 112
-        width: 43
+        x: 16
+        y: 1
+        width: 33
         height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61aff641be597b050800000000000000
-      internalID: 5816282280665020950
+      spriteID: 9af4e0eb561e29f20800000000000000
+      internalID: 3428050093478924201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemywalkingsouth_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c556d2ebf935a47d0800000000000000
+      internalID: -2933440261722905252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemywalkingsouth_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 33
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dbf49f0c8dff3120800000000000000
+      internalID: 2395912304783064018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemywalkingsouth_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 0
+        width: 35
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b549708269a266370800000000000000
+      internalID: 8315380586391245915
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chair9_0: 5816282280665020950
+      enemywalkingsouth_0: 3428050093478924201
+      enemywalkingsouth_1: -2933440261722905252
+      enemywalkingsouth_2: 2395912304783064018
+      enemywalkingsouth_3: 8315380586391245915
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
