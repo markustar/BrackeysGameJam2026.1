@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4bb31eeaa8adc4c4d8320aede74d7e7d
+guid: f619fcd6aa036264d880ee064cb4d933
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6541816029270778006
-    second: bottom_right_vertical_wall_0
+      213: 8540248947151191389
+    second: desk2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bottom_right_vertical_wall_0
+      name: desk2_0
       rect:
         serializedVersion: 2
-        x: 501
-        y: 40
-        width: 17
-        height: 62
+        x: 41
+        y: 73
+        width: 62
+        height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6fdb5d3bfcc635a0800000000000000
-      internalID: -6541816029270778006
+      spriteID: d5db9545b2f058670800000000000000
+      internalID: 8540248947151191389
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 62cfc245aa6d0a348ac9c9a8214df661
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bottom_right_vertical_wall_0: -6541816029270778006
+      desk2_0: 8540248947151191389
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

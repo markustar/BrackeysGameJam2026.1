@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Intensity: 6.33
   m_LightVolumeIntensity: 0.46
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000008d5258871b26f4fa
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -447,8 +447,7 @@ MonoBehaviour:
   BatteryUI: {fileID: 0}
   TorchUnlit: {fileID: 0}
   TorchLit: {fileID: 0}
-  torchLightSpot: {fileID: 0}
-  hasTorch: 0
+  hasTorch: 1
 --- !u!1 &6246752031289608415
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     bool canAttack = true;
     bool isMoving;
     
+    
     InputManager inputManager;  
 
     Rigidbody2D _playerRb;
@@ -71,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         attackHitBox.SetActive(false);
 
         footStepTimer = 5f;
+       
        
     }
 
@@ -155,7 +157,9 @@ public class PlayerMovement : MonoBehaviour
     {   
         Vector2 input = inputManager.GetInput();
         float currentSpeed = 0f;
-        if(input == Vector2.zero || isAttacking)
+       
+        
+        if( input == Vector2.zero || isAttacking || isCoollider == true)
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", false);
@@ -208,6 +212,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isWalking", true);
             PlaySound();
             }
+            
             
         }
 
@@ -351,6 +356,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-   
+    bool isCoollider;
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {   
+        
+        if(collision.gameObject.CompareTag("Obstacle"))
+        {
+            isCoollider = true;
+            anim.SetBool("isWalking", false);
+        }
+    }
+
+
 
 }
