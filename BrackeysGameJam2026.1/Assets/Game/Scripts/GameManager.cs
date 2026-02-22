@@ -55,8 +55,13 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadSceneRoutine(string sceneName)
     {
+        // Freeze the game
+        Time.timeScale = 0f;
+
         if (transitionAnimator != null)
         {
+            // Allow the animator to play while the game is paused
+            transitionAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
             transitionAnimator.SetTrigger("EndTransitionTrigger");
         }
         else
@@ -64,7 +69,8 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("[GameManager] No Transition Animator assigned! Fading will be skipped.");
         }
 
-        yield return new WaitForSeconds(transitionDuration);
+        // Wait in real-time, unaffected by Time.timeScale
+        yield return new WaitForSecondsRealtime(transitionDuration);
 
         SceneManager.LoadScene(sceneName);
 
@@ -73,13 +79,21 @@ public class GameManager : MonoBehaviour
             transitionAnimator.SetTrigger("StartTransitionTrigger");
         }
 
-        yield return new WaitForSeconds(transitionDuration);
+        yield return new WaitForSecondsRealtime(transitionDuration);
+
+        // Unfreeze the game after transition finishes
+        Time.timeScale = 1f;
     }
 
     private IEnumerator LoadSceneRoutine(int sceneBuildIndex)
     {
+        // Freeze the game
+        Time.timeScale = 0f;
+
         if (transitionAnimator != null)
         {
+            // Allow the animator to play while the game is paused
+            transitionAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
             transitionAnimator.SetTrigger("EndTransitionTrigger");
         }
         else
@@ -87,7 +101,8 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("[GameManager] No Transition Animator assigned! Fading will be skipped.");
         }
 
-        yield return new WaitForSeconds(transitionDuration);
+        // Wait in real-time, unaffected by Time.timeScale
+        yield return new WaitForSecondsRealtime(transitionDuration);
 
         SceneManager.LoadScene(sceneBuildIndex);
 
@@ -96,7 +111,10 @@ public class GameManager : MonoBehaviour
             transitionAnimator.SetTrigger("StartTransitionTrigger");
         }
 
-        yield return new WaitForSeconds(transitionDuration);
+        yield return new WaitForSecondsRealtime(transitionDuration);
+
+        // Unfreeze the game after transition finishes
+        Time.timeScale = 1f;
     }
 
     /// <summary>

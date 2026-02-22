@@ -223,22 +223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 1013610436493724479, guid: b2fadd6277a66784f8628cca54e9dd78, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4121781335562435753, guid: b2fadd6277a66784f8628cca54e9dd78, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4441438486428228119, guid: b2fadd6277a66784f8628cca54e9dd78, type: 3}
       propertyPath: patrolPath
       value: 
       objectReference: {fileID: 1886211140}
-    - target: {fileID: 5977672494698688417, guid: b2fadd6277a66784f8628cca54e9dd78, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6202863456517141899, guid: b2fadd6277a66784f8628cca54e9dd78, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.9101
@@ -278,10 +266,6 @@ PrefabInstance:
     - target: {fileID: 6202863456517141899, guid: b2fadd6277a66784f8628cca54e9dd78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763820385819529721, guid: b2fadd6277a66784f8628cca54e9dd78, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
