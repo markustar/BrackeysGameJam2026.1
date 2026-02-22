@@ -12,9 +12,9 @@ public class TorchMechanic : MonoBehaviour
     
     [Header("UI References")]
     [SerializeField] private GameObject batteryBarPrefab;
-    [SerializeField] private Transform batteryContainer;
     [SerializeField] private float barSpacing = 40f;
 
+    private Transform batteryContainer;
     private float currentBatteryLife;
     private bool isTorchOn = false;
     private InputManager inputManager;
@@ -24,7 +24,9 @@ public class TorchMechanic : MonoBehaviour
     {
         inputManager = FindFirstObjectByType<InputManager>();
         currentBatteryLife = batteryLifeSeconds;
-        
+        batteryContainer = GameObject.FindGameObjectWithTag("BatteryContainer").transform;
+
+
         GenerateBars();
         UpdateTorchState();
         UpdateUI();

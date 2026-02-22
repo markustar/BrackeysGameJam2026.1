@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Path
   - GameManager
+  - BatteryContainer
   layers:
   - Default
   - TransparentFX
