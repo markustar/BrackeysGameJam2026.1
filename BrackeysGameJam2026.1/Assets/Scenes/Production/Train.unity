@@ -475,6 +475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4983725985092759097, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6798955950373392757, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
       propertyPath: TorchLit
       value: 
