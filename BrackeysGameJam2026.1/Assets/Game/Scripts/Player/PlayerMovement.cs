@@ -1,11 +1,9 @@
 
 using System;
 using System.Collections;
-using Unity.Mathematics;
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Video;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -64,6 +62,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float footStepTimerRun = 0.2f;
     [SerializeField] float footStepTimerSlowWalk = 1f;
 
+    [Header("Interaction")]
+    [SerializeField] float interactionDistance = 1.5f;
+    [SerializeField] LayerMask isInteractable;
+
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
@@ -102,7 +104,8 @@ public class PlayerMovement : MonoBehaviour
 
        Animate();
 
-      
+      // Interaction 
+     
 
         // Combat
 
@@ -371,6 +374,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    
 
 }
