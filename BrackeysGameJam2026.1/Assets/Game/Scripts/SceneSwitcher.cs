@@ -23,14 +23,14 @@ public class SceneSwitcher : MonoBehaviour
 
     IEnumerator WinConditionMet()
     {   
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(7f);
 
         if(engineStart.HasStarted())
         {
           SceneManager.LoadScene("MainMenu");
         }
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(7f);
        
     }
 }
