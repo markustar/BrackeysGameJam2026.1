@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88670028}
   - component: {fileID: 88670029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 130721995}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftestWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 161716534}
   - component: {fileID: 161716535}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 204434013}
   - component: {fileID: 204434014}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 221194072}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Train Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 249201416}
   - component: {fileID: 249201417}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1 (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 268288803}
   - component: {fileID: 268288805}
   - component: {fileID: 268288804}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bottom_right_vertical_wall_0 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 280153612}
   - component: {fileID: 280153611}
   - component: {fileID: 280153613}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair2_0 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -880,6 +880,55 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.1640625, y: 0.16079819}
   m_EdgeRadius: 0
+--- !u!1 &332902057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 332902059}
+  - component: {fileID: 332902058}
+  m_Layer: 0
+  m_Name: PathFindingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &332902058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332902057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7366585eee343f49821bcd3424b9a80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AStarPathfinding
+  gridWorldSize: {x: 69.8, y: 10}
+  nodeRadius: 0.2
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!4 &332902059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332902057}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -8.96, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &373520269
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +1024,7 @@ GameObject:
   - component: {fileID: 415712387}
   - component: {fileID: 415712389}
   - component: {fileID: 415712388}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair3_0 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1124,7 +1173,7 @@ GameObject:
   - component: {fileID: 483836512}
   - component: {fileID: 483836514}
   - component: {fileID: 483836513}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair1_0 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1261,7 +1310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 505188192}
   - component: {fileID: 505188193}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (11)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1340,7 +1389,7 @@ GameObject:
   - component: {fileID: 523491960}
   - component: {fileID: 523491959}
   - component: {fileID: 523491961}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair1_0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1607,7 +1656,7 @@ GameObject:
   - component: {fileID: 562552596}
   - component: {fileID: 562552598}
   - component: {fileID: 562552597}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bottom_right_vertical_wall_0 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1743,7 +1792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 586156191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Train Assets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1803,7 +1852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 626524977}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Borders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2014,7 +2063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690771939}
   - component: {fileID: 690771940}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2194,7 +2243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808154789}
   - component: {fileID: 808154790}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MainStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2305,7 +2354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905345190}
   - component: {fileID: 905345191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pipes (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2383,7 +2432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 914190052}
   - component: {fileID: 914190053}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (9)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2462,7 +2511,7 @@ GameObject:
   - component: {fileID: 914733319}
   - component: {fileID: 914733318}
   - component: {fileID: 914733317}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bottommachine_0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2601,7 +2650,7 @@ GameObject:
   - component: {fileID: 957812081}
   - component: {fileID: 957812083}
   - component: {fileID: 957812084}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: individual_layers_train_interior_6
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2775,7 +2824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 974720179}
   - component: {fileID: 974720180}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightestWall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2854,7 +2903,7 @@ GameObject:
   - component: {fileID: 986783679}
   - component: {fileID: 986783681}
   - component: {fileID: 986783680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bottom_right_vertical_wall_0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2992,7 +3041,7 @@ GameObject:
   - component: {fileID: 993597933}
   - component: {fileID: 993597932}
   - component: {fileID: 993597931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair3_0 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3128,7 +3177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1017390115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Seats
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3212,7 +3261,7 @@ GameObject:
   - component: {fileID: 1128987621}
   - component: {fileID: 1128987620}
   - component: {fileID: 1128987622}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair2_0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3349,7 +3398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1160296017}
   - component: {fileID: 1160296018}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3428,7 +3477,7 @@ GameObject:
   - component: {fileID: 1195162817}
   - component: {fileID: 1195162819}
   - component: {fileID: 1195162818}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair4_0 (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3622,7 +3671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1289844312}
   - component: {fileID: 1289844313}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (12)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3747,7 +3796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1350376528}
   - component: {fileID: 1350376529}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (13)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3826,7 +3875,7 @@ GameObject:
   - component: {fileID: 1421645971}
   - component: {fileID: 1421645973}
   - component: {fileID: 1421645972}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair2_0 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3963,7 +4012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427095223}
   - component: {fileID: 1427095224}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pipes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4041,7 +4090,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465317877}
   - component: {fileID: 1465317878}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4121,6 +4170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1647028689638848444, guid: b2fadd6277a66784f8628cca54e9dd78, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4441438486428228119, guid: b2fadd6277a66784f8628cca54e9dd78, type: 3}
       propertyPath: patrolPath
       value: 
@@ -4180,7 +4233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476545655}
   - component: {fileID: 1476545656}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4259,7 +4312,7 @@ GameObject:
   - component: {fileID: 1492175265}
   - component: {fileID: 1492175267}
   - component: {fileID: 1492175266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair4_0 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4447,7 +4500,7 @@ GameObject:
   - component: {fileID: 1575509124}
   - component: {fileID: 1575509123}
   - component: {fileID: 1575509122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair4_0 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4584,7 +4637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663381689}
   - component: {fileID: 1663381690}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4662,7 +4715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703596579}
   - component: {fileID: 1703596580}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4741,7 +4794,7 @@ GameObject:
   - component: {fileID: 1721911064}
   - component: {fileID: 1721911066}
   - component: {fileID: 1721911065}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair2_0 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4884,7 +4937,7 @@ GameObject:
   - component: {fileID: 1727931827}
   - component: {fileID: 1727931826}
   - component: {fileID: 1727931825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: wallhorizantal_0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5021,7 +5074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1737856402}
   - component: {fileID: 1737856403}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (10)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5100,7 +5153,7 @@ GameObject:
   - component: {fileID: 1756935214}
   - component: {fileID: 1756935216}
   - component: {fileID: 1756935215}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair4_0 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5239,7 +5292,7 @@ GameObject:
   - component: {fileID: 1767432601}
   - component: {fileID: 1767432600}
   - component: {fileID: 1767432603}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: individual_layers_train_interior_0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5530,7 +5583,7 @@ GameObject:
   - component: {fileID: 1945855082}
   - component: {fileID: 1945855081}
   - component: {fileID: 1945855083}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair4_0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5668,7 +5721,7 @@ GameObject:
   - component: {fileID: 1949099106}
   - component: {fileID: 1949099105}
   - component: {fileID: 1949099104}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair1_0 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5804,7 +5857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953775652}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Engine Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5841,7 +5894,7 @@ GameObject:
   - component: {fileID: 1967076997}
   - component: {fileID: 1967076996}
   - component: {fileID: 1967076998}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair3_0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5979,7 +6032,7 @@ GameObject:
   - component: {fileID: 1987917268}
   - component: {fileID: 1987917270}
   - component: {fileID: 1987917269}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair1_0 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6116,7 +6169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1994028392}
   - component: {fileID: 1994028393}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6194,7 +6247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1996907434}
   - component: {fileID: 1996907435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Small Compart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6272,7 +6325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2010878085}
   - component: {fileID: 2010878086}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (14)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6350,7 +6403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2014220407}
   - component: {fileID: 2014220408}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6428,7 +6481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2031582465}
   - component: {fileID: 2031582466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6507,7 +6560,7 @@ GameObject:
   - component: {fileID: 2034397292}
   - component: {fileID: 2034397294}
   - component: {fileID: 2034397293}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chair3_0 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6644,7 +6697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061227883}
   - component: {fileID: 2061227884}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6722,7 +6775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2084509994}
   - component: {fileID: 2084509995}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6800,7 +6853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2116648920}
   - component: {fileID: 2116648921}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7041,3 +7094,4 @@ SceneRoots:
   - {fileID: 1302234362}
   - {fileID: 76681672}
   - {fileID: 1109649918}
+  - {fileID: 332902059}
