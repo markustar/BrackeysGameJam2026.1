@@ -8,6 +8,7 @@ TagManager:
   - Torch
   - Obstacle
   - Path
+  - GameManager
   layers:
   - Default
   - TransparentFX
