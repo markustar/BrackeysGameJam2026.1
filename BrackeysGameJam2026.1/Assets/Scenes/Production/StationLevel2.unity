@@ -672,6 +672,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 366877905544596296, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: SceneIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.56
@@ -1037,6 +1041,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.12696421
       objectReference: {fileID: 0}
+    - target: {fileID: 366877905544596296, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: SceneIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3742185524873440307, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
       propertyPath: SceneIndex
       value: 4
@@ -1375,11 +1383,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1628001238 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7107400792929033819, guid: 50d3553aeddcd54409f964f44fda4099, type: 3}
-  m_PrefabInstance: {fileID: 21100145}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1634979465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,7 +1727,7 @@ PrefabInstance:
     - target: {fileID: 4966623902192059061, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
       propertyPath: batteryContainer
       value: 
-      objectReference: {fileID: 1628001238}
+      objectReference: {fileID: 0}
     - target: {fileID: 4983725985092759097, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
       propertyPath: m_Name
       value: Player

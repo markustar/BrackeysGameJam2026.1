@@ -272,7 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5194492935577496549}
   - component: {fileID: 221802802678745917}
-  - component: {fileID: 3742185524873440307}
+  - component: {fileID: 366877905544596296}
   m_Layer: 0
   m_Name: SceneChanger
   m_TagString: Untagged
@@ -342,7 +342,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.4401212, y: 1.9891785}
   m_EdgeRadius: 0
---- !u!114 &3742185524873440307
+--- !u!114 &366877905544596296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,8 +351,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7149669626837578223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9f4432bdd8701b4dba9fdc2b2779b99, type: 3}
+  m_Script: {fileID: 11500000, guid: d6666b174a30ad643ac66f7f2c603433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
-  PressButtonCanvas: {fileID: 6003074511595587125}
-  SceneIndex: 3
+  SceneIndex: 0

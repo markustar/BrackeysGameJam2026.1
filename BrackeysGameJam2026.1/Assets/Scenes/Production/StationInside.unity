@@ -255,7 +255,7 @@ SpriteRenderer:
   m_Size: {x: 0.05859375, y: 0.08203125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &57023742
 GameObject:
@@ -346,7 +346,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.53125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!114 &64252308 stripped
 MonoBehaviour:
@@ -495,7 +495,7 @@ SpriteRenderer:
   m_Size: {x: 0.0546875, y: 0.11328125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &210810467
 PrefabInstance:
@@ -1625,7 +1625,7 @@ SpriteRenderer:
   m_Size: {x: 0.17578125, y: 0.1015625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &711459044
 GameObject:
@@ -2549,7 +2549,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.1171875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1083795952
 GameObject:
@@ -2825,8 +2825,69 @@ SpriteRenderer:
   m_Size: {x: 0.10546875, y: 0.07421875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1178504872
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 366877905544596296, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: SceneIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194492935577496549, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149669626837578223, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
+      propertyPath: m_Name
+      value: SceneChanger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6fb9266f04e2e844883e87f67986a558, type: 3}
 --- !u!1 &1200287324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,7 +3064,7 @@ SpriteRenderer:
   m_Size: {x: 0.34375, y: 0.0859375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1293356201
 GameObject:
@@ -4217,3 +4278,4 @@ SceneRoots:
   - {fileID: 1293356203}
   - {fileID: 1361499351}
   - {fileID: 1200287325}
+  - {fileID: 1178504872}
