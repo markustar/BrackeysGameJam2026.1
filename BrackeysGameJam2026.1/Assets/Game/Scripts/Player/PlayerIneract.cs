@@ -30,6 +30,7 @@ public class PlayerIneract : MonoBehaviour
         {   
             if(hit.TryGetComponent(out EngineStart engineStart))
             {   
+                Debug.Log(hit.name);
                 InteractionUI.Instance.Show();
                 if(Input.GetKeyDown(KeyCode.E))
                 engineStart.Interact();

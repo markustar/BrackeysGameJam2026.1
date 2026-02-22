@@ -12,7 +12,7 @@ public class EngineStart : MonoBehaviour, IInteractable
 
 
    
-    bool hasStarted = false;
+    public bool hasStarted = false;
     public void Interact()
     {
         if (hasStarted) return;
@@ -38,5 +38,10 @@ public class EngineStart : MonoBehaviour, IInteractable
         if(hasStarted) return "";
         return "E - Push To Start The Engine";
 
+    }
+
+    public bool HasStarted()
+    {
+        return hasStarted;
     }
 }

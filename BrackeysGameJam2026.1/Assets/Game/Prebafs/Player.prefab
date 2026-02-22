@@ -101,7 +101,7 @@ MonoBehaviour:
   batteryCount: 3
   batteryLifeSeconds: 15
   batteryBarPrefab: {fileID: 4853465701832287915, guid: 4479f0c5ec9a3414e9552eab48708886, type: 3}
-  batteryContainer: {fileID: 0}
+  batteryContainer: {fileID: 4069125312285602453, guid: 360f7eaedd45beb4db015ad687f20516, type: 3}
   barSpacing: 90
 --- !u!1 &4949315024428644080
 GameObject:
@@ -396,6 +396,10 @@ MonoBehaviour:
   footStepTimerWalk: 0.6
   footStepTimerRun: 0.4
   footStepTimerSlowWalk: 1.2
+  interactionDistance: 1.5
+  isInteractable:
+    serializedVersion: 2
+    m_Bits: 0
   attackRange: 0.8
   hasWeapon: 1
 --- !u!114 &2919405030939297454
