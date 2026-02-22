@@ -33,8 +33,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.83, y: 1.94, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8847090348853509065}
   - {fileID: 1727458785646286063}
@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226aa6b8e49f0ef4b9d65fb651572d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  patrolPath: {fileID: 0}
   patrolSpeed: 2
   chaseSpeed: 3
   waypointWaitTime: 2
@@ -100,6 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   initialHealth: 100
+  enemyhurt:
+  - {fileID: 8300000, guid: b92e7eb79cbba024c82aab19746e54d2, type: 3}
+  - {fileID: 8300000, guid: aafccd1cec26d1d4aa5f056bf19aed27, type: 3}
+  volume: 0.5
 --- !u!114 &856136186783806746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a99942d8cff8fe41ba71f19b4e07217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
-  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashColor: {r: 0.6679245, g: 0.5330794, b: 0.5330794, a: 1}
   _flashTime: 0.25
 --- !u!61 &4121781335562435753
 BoxCollider2D:
@@ -264,12 +267,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1821394159
+  m_SortingLayer: 3
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2932704697777102931, guid: 158b92a4156f7fc47a8a9bb4efe3a6ac, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.79622644, g: 0.7316269, b: 0.7316269, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

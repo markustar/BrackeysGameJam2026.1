@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e5828e19b8271974c8effca02f165c33
+guid: d46dc0cb512d46841b10a94eda41227b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4024389864806640351
-    second: refrigirator_0
+      213: -8185252286816643056
+    second: walls_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: refrigirator_0
+      name: walls_0
       rect:
         serializedVersion: 2
-        x: 206
-        y: 43
-        width: 35
-        height: 29
+        x: 0
+        y: 26
+        width: 112
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12594867dbe7628c0800000000000000
-      internalID: -4024389864806640351
+      spriteID: 01817579964286e80800000000000000
+      internalID: -8185252286816643056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walls 1_0
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 26
+        width: 112
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117c84bf95610e64b9656329330cfb33
+      internalID: -1113018800
       vertices: []
       indices: 
       edges: []
@@ -125,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8fd365dc8fea5aa4482d1a944c329d1d
+    spriteID: 17d7cd4516ccf3646b8fb786a6fbd305
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +157,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      refrigirator_0: -4024389864806640351
+      walls 1_0: -1113018800
+      walls_0: -8185252286816643056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     public void Death()
     {   
         SoundFXManager.instance.PlaySoundFXClip(playerDeath, this.transform, volume);
-        Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject);
     }
 
     [SerializeField] bool devDebugBool;

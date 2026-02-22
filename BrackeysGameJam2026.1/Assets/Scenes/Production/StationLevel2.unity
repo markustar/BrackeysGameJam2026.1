@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 1520295101}
   - component: {fileID: 1520295100}
   - component: {fileID: 1520295099}
+  - component: {fileID: 1520295102}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -881,7 +882,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8.16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -906,12 +907,56 @@ Transform:
   m_GameObject: {fileID: 1520295098}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 5.05, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1520295102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520295098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1001 &1582656589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1429,11 +1474,51 @@ PrefabInstance:
       propertyPath: stamina
       value: 
       objectReference: {fileID: 21100149}
+    - target: {fileID: 8159785870090101344, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
+      propertyPath: hasWeapon
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5811803de24eddc47aef535f4d3f35c1, type: 3}
+--- !u!1 &1949456805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2755490284114748274, guid: ccd200281eee20b4eb6847127bff9d55, type: 3}
+  m_PrefabInstance: {fileID: 2085817586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1949456808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949456805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75bede09c831254689d1c5e601787d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundFXManager
+  soundFXObject: {fileID: 9086673659393366584, guid: b325dad924e71c447b725e5c7a7316e9, type: 3}
+--- !u!114 &1949456809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949456805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94cfe5dd2899f7149a3fd8c3986803ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundStationtwo
+  EeeriSounds:
+  - {fileID: 8300000, guid: ea95d95c8e939914f9c0c54ba1f4d8df, type: 3}
+  - {fileID: 8300000, guid: 755b6927d29a8f74f99a12d59bd99923, type: 3}
+  - {fileID: 8300000, guid: f545a35f8602f0347b21b47f9f0be6d4, type: 3}
+  - {fileID: 8300000, guid: 1fba38cc2f1593e4aa2d8f41dd3874d6, type: 3}
+  flicker: {fileID: 8300000, guid: 0c93404166663d544861a530d19122ff, type: 3}
 --- !u!1001 &2085817586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1489,7 +1574,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2755490284114748274, guid: ccd200281eee20b4eb6847127bff9d55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1949456808}
+    - targetCorrespondingSourceObject: {fileID: 2755490284114748274, guid: ccd200281eee20b4eb6847127bff9d55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1949456809}
   m_SourcePrefab: {fileID: 100100000, guid: ccd200281eee20b4eb6847127bff9d55, type: 3}
 --- !u!1001 &2147199982
 PrefabInstance:
@@ -1500,12 +1591,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4443866305100730070, guid: 74de513ce1b94cf47a2dd8b9129e86da, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443866305100730070, guid: 74de513ce1b94cf47a2dd8b9129e86da, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443866305100730070, guid: 74de513ce1b94cf47a2dd8b9129e86da, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443866305100730070, guid: 74de513ce1b94cf47a2dd8b9129e86da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.28
+      value: 9.83
       objectReference: {fileID: 0}
     - target: {fileID: 4443866305100730070, guid: 74de513ce1b94cf47a2dd8b9129e86da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.86
+      value: 5.68
       objectReference: {fileID: 0}
     - target: {fileID: 4443866305100730070, guid: 74de513ce1b94cf47a2dd8b9129e86da, type: 3}
       propertyPath: m_LocalPosition.z

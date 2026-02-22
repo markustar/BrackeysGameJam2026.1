@@ -7,6 +7,7 @@ TagManager:
   - Weapon
   - Torch
   - Obstacle
+  - Path
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 124101627
+    locked: 0
+  - name: Enemy
+    uniqueID: 2473573137
     locked: 0
   - name: UpperBackground
     uniqueID: 4210304539
