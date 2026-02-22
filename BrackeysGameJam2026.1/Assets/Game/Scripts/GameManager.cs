@@ -98,4 +98,19 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(transitionDuration);
     }
+
+    /// <summary>
+    /// Call this to quit the application. Handles both Editor and standalone builds.
+    /// Example: GameManager.Instance.QuitGame();
+    /// </summary>
+    public void QuitGame()
+    {
+        Debug.Log("[GameManager] Quitting Game...");
+        
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }
