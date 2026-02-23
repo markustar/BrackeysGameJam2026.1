@@ -164,7 +164,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a28d435d534590840babb21c95f1b48c, type: 3}
   - {fileID: 8300000, guid: eb1f7dda1e64f7a4f80aac1007058bfa, type: 3}
   - {fileID: 8300000, guid: 04a4ec528d9c45e4aba029452754649c, type: 3}
-  volume: 0.5
+  volume: 1
 --- !u!95 &6488478652226605286
 Animator:
   serializedVersion: 7

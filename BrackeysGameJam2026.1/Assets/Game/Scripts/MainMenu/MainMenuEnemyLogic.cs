@@ -55,17 +55,19 @@ public class MainMenuEnemyLogic : MonoBehaviour
         anim.SetBool("isMoving", false);
         anim.SetTrigger("Attack");
 
-        if (SoundFXManager.instance != null && attackSounds.Length > 0)
-        {
-            SoundFXManager.instance.PlayRandomSoundFXClip(attackSounds, transform, volume);
-        }
-
         nextAttackTime = Time.time + attackCooldown;
     }
 
     public void StartCameraShake()
     {
         StartCoroutine(ShakeCamera(0.15f, 0.2f));
+    }
+    public void PlaySound()
+    {
+        if (SoundFXManager.instance != null && attackSounds != null && attackSounds.Length > 0)
+        {
+            SoundFXManager.instance.PlayRandomSoundFXClip(attackSounds, transform, volume);
+        }
     }
 
     public void TakeDamage()
