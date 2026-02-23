@@ -3,10 +3,14 @@ using System.Collections;
 
 public class MainMenuEnemyLogic : MonoBehaviour
 {
-    [SerializeField] private int health = 2;
+    [SerializeField] DamageFlash damageFlash;
+    [SerializeField] private int health = 3;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private float attackCooldown = 1.5f;
+
+    [SerializeField] private AudioClip[] attackSounds;
+    [Range(0, 1)][SerializeField] private float volume = 0.5f;
 
     [Header("References")]
     private Transform player;
@@ -16,7 +20,7 @@ public class MainMenuEnemyLogic : MonoBehaviour
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         mainCam = Camera.main;
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -51,13 +55,22 @@ public class MainMenuEnemyLogic : MonoBehaviour
         anim.SetBool("isMoving", false);
         anim.SetTrigger("Attack");
 
-        nextAttackTime = Time.time + attackCooldown;
+        if (SoundFXManager.instance != null && attackSounds.Length > 0)
+        {
+            SoundFXManager.instance.PlayRandomSoundFXClip(attackSounds, transform, volume);
+        }
 
+        nextAttackTime = Time.time + attackCooldown;
+    }
+
+    public void StartCameraShake()
+    {
         StartCoroutine(ShakeCamera(0.15f, 0.2f));
     }
 
     public void TakeDamage()
     {
+        damageFlash.CallCouroutine();
         health -= 1;
         if (health <= 0) Destroy(gameObject);
     }

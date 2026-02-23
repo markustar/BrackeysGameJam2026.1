@@ -6,6 +6,7 @@ public class DamageFlash : MonoBehaviour
 
     [SerializeField] Color _flashColor = Color.white;
     [SerializeField] float _flashTime = 0.25f;
+    [SerializeField] bool isMainMenu = false;
 
     SpriteRenderer spriteRenderer;
     Material material;
@@ -14,7 +15,15 @@ public class DamageFlash : MonoBehaviour
 
     void Awake()
     {   
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if(isMainMenu)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+        if(isMainMenu == false)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+        
         Innit();
     }
 

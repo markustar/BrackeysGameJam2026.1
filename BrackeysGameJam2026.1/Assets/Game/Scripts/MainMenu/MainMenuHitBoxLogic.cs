@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class MainMenuHitBoxLogic : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private GameObject enemy;
+
+    public void DealDamageToEnemy()
     {
-        
+        if (enemy != null)
+        {
+            enemy.GetComponent<MainMenuEnemyLogic>().TakeDamage();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        
+        if (collider.gameObject.CompareTag("MainMenuEnemy"))
+        {
+            enemy = collider.gameObject;
+        }
     }
 }
